@@ -1,3 +1,71 @@
-section{
+section {
     margin-top: 65px;
+}
+
+
+.titleImage {
+    height: 500px;
+    z-index: 1;
+}
+
+.containerTitleText {
+    width: max-content;
+    background-color: darkseagreen;
+    padding: 11px;
+    margin-top: 20px;
+}
+
+/* DEMO-SPECIFIC STYLES */
+.containerTitleText h1 {
+    color: white;
+    font-family: monospace;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em;
+    /* Adjust as needed */
+    animation:
+        typing 3s steps(30, end),
+        blink-caret .5s step-end infinite;
+    width: max-content;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange
+    }
+}
+
+
+.containerTextHeader {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    margin-top: 124px;
 }
