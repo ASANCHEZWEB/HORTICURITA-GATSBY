@@ -37,7 +37,7 @@ if(claseProducts==="ulProductos"){
     <header>
     <Helmet>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
     </Helmet>
       <nav>
         <div>
@@ -57,7 +57,7 @@ if(claseProducts==="ulProductos"){
             </li>
             <li><Link to="/nosotros">NOSOTROS</Link></li>
             <li><Link to="/contacto">CONTACTO</Link></li>
-            <li class="cartLi"><Link to="/carro"><img alt="imagen carrito verde" src="https://res.cloudinary.com/dfsni6m2x/image/upload/c_scale,h_40,q_10,w_40/v1593638701/iconosHorticurita/carritomenu_nsscxy.png"/><span>CARRITO (0)</span></Link></li>
+            <li className="cartLi"><Link to="/carro"><img alt="imagen carrito verde" src="https://res.cloudinary.com/dfsni6m2x/image/upload/c_scale,h_40,q_10,w_40/v1593638701/iconosHorticurita/carritomenu_nsscxy.png"/><span>CARRITO (0)</span></Link></li>
           </ul>
         </div>
         <div> <Link to="/"><img alt="horticurita-logo" src="https://horticurita.es/horticurita-logo.png"/></Link></div>
