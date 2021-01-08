@@ -3,24 +3,21 @@ import NavBar from "../components/navBar";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/home.css";
+import { Link } from "gatsby"
+
 let Home = (props) => {
-  console.log(props);
   return (
     <>
       <NavBar />
-      <section>
-        <div className="containerTextHeader">
-          <div className="containerTitleText">
+      <section id="sectionTitle">
+        <div class="containerTitle">
+          <div className="containerGreenText">
             <h1>¡Somos tu frutería online!</h1>
-          </div>
-          <div className="containerTitleText">
-            <h1>¡Somos tu frutería online!</h1>
-          </div>
-          <div className="containerTitleText">
-            <h1>¡Somos tu frutería online!</h1>
+            <p>¡Fruta , verdura , encurtidos , quesos y mas!</p>
+            <span>Envíos en 24/48 horas en toda la península</span>
+            <button className="buttonSectionOne"><Link to="/productos">COMPRAR</Link></button>
           </div>
         </div>
-
         <Img
           className="titleImage"
           fluid={props.data.file.childImageSharp.fluid}

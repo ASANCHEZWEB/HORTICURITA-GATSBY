@@ -1,71 +1,126 @@
-section {
+#sectionTitle {
+    height: 500px;
     margin-top: 65px;
 }
 
-
 .titleImage {
-    height: 500px;
+    height: 100%;
     z-index: 1;
 }
 
-.containerTitleText {
-    width: max-content;
-    background-color: darkseagreen;
-    padding: 11px;
-    margin-top: 20px;
-}
 
-/* DEMO-SPECIFIC STYLES */
-.containerTitleText h1 {
-    color: white;
-    font-family: monospace;
-    overflow: hidden;
-    /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange;
-    /* The typwriter cursor */
-    white-space: nowrap;
-    /* Keeps the content on a single line */
-    margin: 0 auto;
-    /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em;
-    /* Adjust as needed */
-    animation:
-        typing 3s steps(30, end),
-        blink-caret .5s step-end infinite;
-    width: max-content;
-}
-
-/* The typing effect */
-@keyframes typing {
-    from {
-        width: 0
+@media (max-width: 767px) {
+    .containerTitle {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: aliceblue;
+        margin-top: 121px;
     }
 
-    to {
-        width: 100%
-    }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
+    .containerGreenText {
+        width: 94%;
+        display: flex;
+        flex-direction: column;
+        height: 168px;
+        align-items: center;
+        background-color: #0880009e;
+        font-family: 'Montserrat';
+        font-size: 13px;
     }
 
-    50% {
-        border-color: orange
+    .buttonSectionOne {
+        margin: 85px 0px 0px 0px;
+        background: #088000d9;
+        padding: 14px;
+        border-color: aliceblue;
+        border-radius: 100px 100px 100px 100px;
+        touch-action: manipulation;
+        outline: none;
+    }
+
+    .buttonSectionOne>a {
+        color: white;
+        text-decoration: none;
     }
 }
 
 
-.containerTextHeader {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    z-index: 2;
-    margin-top: 124px;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .containerTitle {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: aliceblue;
+        margin-top: 121px;
+    }
+
+    .containerGreenText {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        height: 220px;
+        align-items: center;
+        background-color: #0880009e;
+        font-family: 'Montserrat';
+        font-size: 21px;
+    }
+
+    .buttonSectionOne {
+        margin: 85px 0px 0px 0px;
+        background: #088000d9;
+        padding: 14px;
+        border-color: aliceblue;
+        border-radius: 100px 100px 100px 100px;
+        touch-action: manipulation;
+        outline: none;
+    }
+
+    .buttonSectionOne>a {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .containerTitle {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: aliceblue;
+        margin-top: 86px;
+    }
+
+    .containerGreenText {
+        width: 94%;
+        display: flex;
+        flex-direction: column;
+        height: 279px;
+        align-items: center;
+        background-color: #0880009e;
+        font-family: 'Montserrat';
+        font-size: 27px;
+    }
+
+    .buttonSectionOne {
+        margin: 85px 0px 0px 0px;
+        background: #088000d9;
+        padding: 14px;
+        border-color: aliceblue;
+        border-radius: 100px 100px 100px 100px;
+        touch-action: manipulation;
+        outline: none;
+    }
+
+    .buttonSectionOne>a {
+        color: white;
+        text-decoration: none;
+    }
 }
