@@ -17,7 +17,7 @@ setImagenMenu('https://res.cloudinary.com/dfsni6m2x/image/upload/c_scale,h_23,q_
 }
 if(clase==="listadoNavBar"){
     setClase("listadoNavBar showList")
-    setImagenMenu('http://localhost:8000/images/menu-cerrado.svg')
+    setImagenMenu('/images/menu-cerrado.svg')
 }
 }
     //abrir  o cerrar productos
