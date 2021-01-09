@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+
 #sectionTitle {
     height: 500px;
     margin-top: 65px;
@@ -8,7 +11,74 @@
     z-index: 1;
 }
 
+.animate__animated.animate__pulse {
+    --animate-duration: 2s;
+}
 
+.categories>h2 {
+    font-size: 30px;
+    color: #333;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 0px;
+    padding-left: 15px;
+
+}
+
+.categories>hr {
+    width: 86px;
+    margin: 0px;
+    height: 3px;
+    margin: 6px 0px 0px 16px;
+    border: none;
+    background-color: green;
+}
+
+#sectionTwoHome {
+    padding-top: 20px;
+}
+
+.containerCategories {
+    padding: 35px 12px 0px 12px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.categoryItem {
+    width: 260px;
+    height: 425px;
+    margin-top: 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: #009688;
+    word-break: break-all;
+    align-items: center;
+    display: flex;
+    font-family: 'Montserrat';
+    flex-direction: column;
+}
+.categoryItem>span{
+    font-weight: 800;
+    font-size: 30px;
+}
+.categoryItem>button{
+    background-color: #0880009e;
+    color: white;
+    border: none;
+    padding: 12px 37px;
+    font-size: 18px;
+    touch-action: manipulation;
+    margin-top: 18px;
+    outline: none;
+}
+.categoryItem>p{
+    width: 92%;
+}
+.categoryItem>img{
+    height: 215px;
+    width: 260px;
+}
 @media (max-width: 767px) {
     .containerTitle {
         position: absolute;
@@ -35,10 +105,10 @@
         margin: 85px 0px 0px 0px;
         background: #088000d9;
         padding: 14px;
-        border-color: aliceblue;
+
         border-radius: 100px 100px 100px 100px;
         touch-action: manipulation;
-        outline: none;
+        border: none
     }
 
     .buttonSectionOne>a {
@@ -74,10 +144,10 @@
         margin: 85px 0px 0px 0px;
         background: #088000d9;
         padding: 14px;
-        border-color: aliceblue;
+
         border-radius: 100px 100px 100px 100px;
         touch-action: manipulation;
-        outline: none;
+        border: none
     }
 
     .buttonSectionOne>a {
@@ -113,10 +183,10 @@
         margin: 85px 0px 0px 0px;
         background: #088000d9;
         padding: 14px;
-        border-color: aliceblue;
+        border: none;
         border-radius: 100px 100px 100px 100px;
         touch-action: manipulation;
-        outline: none;
+
     }
 
     .buttonSectionOne>a {

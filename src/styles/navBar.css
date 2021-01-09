@@ -1,9 +1,9 @@
 nav {
-    position: fixed;
     width: 100%;
     top:0px;
     z-index: 100;
     position: fixed;
+    background-color: #0880009e;
 }
 
 
@@ -31,7 +31,6 @@ nav {
         height: 65px;
         display: flex;
         justify-content: space-around;
-        background-color: #2ecc71;
         align-items: center;
     }
 
@@ -139,7 +138,7 @@ nav {
         height: 65px;
         display: flex;
         justify-content: space-around;
-        background-color: #2ecc71;
+
         align-items: center;
     }
 
@@ -244,7 +243,7 @@ nav {
         height: 65px;
         display: flex;
         justify-content: space-around;
-        background-color: #2ecc71;
+
         align-items: center;
     }
 
