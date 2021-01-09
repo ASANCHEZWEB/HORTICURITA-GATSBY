@@ -58,11 +58,13 @@
     font-family: 'Montserrat';
     flex-direction: column;
 }
-.categoryItem>span{
+
+.categoryItem>span {
     font-weight: 800;
     font-size: 30px;
 }
-.categoryItem>button{
+
+.categoryItem>button {
     background-color: #0880009e;
     color: white;
     border: none;
@@ -72,13 +74,16 @@
     margin-top: 18px;
     outline: none;
 }
-.categoryItem>p{
+
+.categoryItem>p {
     width: 92%;
 }
-.categoryItem>img{
+
+.categoryItem>img {
     height: 215px;
     width: 260px;
 }
+
 @media (max-width: 767px) {
     .containerTitle {
         position: absolute;

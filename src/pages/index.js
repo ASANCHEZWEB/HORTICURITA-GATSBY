@@ -34,25 +34,34 @@ let Home = (props) => {
         </div>
         <div className="containerCategories">
           <div className="categoryItem">
-            <img alt="frutas gif" src="../images/categoria-frutas.gif"/>
+            <img alt="frutas gif" src="/images/categoria-frutas.gif" />
             <span>Frutas</span>
-            <p>¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y más!</p>
+            <p>
+              ¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y
+              más!
+            </p>
             <button>Ver frutas</button>
           </div>
           <div className="categoryItem">
-            <img alt="verduras gif" src="../images/categoria-verduras.gif"/>
+            <img alt="verduras gif" src="/images/categoria-verduras.gif" />
             <span>Verduras</span>
             <p>¡Tomates,lechugas,calabazas,patatas,calabacín y más!</p>
             <button>Ver verduras</button>
-          </div><div className="categoryItem">
-            <img alt="encurtidos gif" src="../images/categoria-encurtidos.gif"/>
+          </div>
+          <div className="categoryItem">
+            <img alt="encurtidos gif" src="/images/categoria-encurtidos.gif" />
             <span>Encurtidos</span>
-            <p>¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!</p>
+            <p>
+              ¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!
+            </p>
             <button>Ver encurtidos</button>
-          </div><div className="categoryItem">
-            <img alt="quesos gif" src="../images/categoria-quesos.gif"/>
+          </div>
+          <div className="categoryItem">
+            <img alt="quesos gif" src="/images/categoria-quesos.gif" />
             <span>Quesos</span>
-            <p>¡Quesos de oveja , de cabra o       mixto en queso entero medio o cuña!</p>
+            <p>
+              ¡Quesos de oveja , de cabra o mixto en queso entero medio o cuña!
+            </p>
             <button>Ver quesos</button>
           </div>
         </div>
