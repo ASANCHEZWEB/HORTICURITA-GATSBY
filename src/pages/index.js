@@ -4,9 +4,13 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/home.css";
 import { Link } from "gatsby";
+import gifFrutas from "../images/categoria-frutas.gif";
+import gifVerduras from "../images/categoria-verduras.gif";
+import gifEncurtidos from "../images/categoria-encurtidos.gif";
+import gifQuesos from "../images/categoria-quesos.gif";
 
 let Home = (props) => {
-  console.log(props);
+  //console.log(props.data.file.childImageSharp.fluid)
   return (
     <>
       <NavBar />
@@ -16,9 +20,12 @@ let Home = (props) => {
             <h1>¡Somos tu frutería online!</h1>
             <p>¡Fruta , verdura , encurtidos , quesos y mas!</p>
             <span>Envíos en 24/48 horas en toda la península</span>
-            <button className="buttonSectionOne animate__animated animate__pulse animate__infinite">
-              <Link to="/productos">COMPRAR</Link>
-            </button>
+            <Link
+              className="buttonSectionOne animate__animated animate__pulse animate__infinite"
+              to="/productos"
+            >
+              COMPRAR
+            </Link>
           </div>
         </div>
         <Img
@@ -34,7 +41,7 @@ let Home = (props) => {
         </div>
         <div className="containerCategories">
           <div className="categoryItem">
-            <img alt="frutas gif" src="/images/categoria-frutas.gif" />
+            <img alt="frutas" src={gifFrutas} />
             <span>Frutas</span>
             <p>
               ¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y
@@ -43,13 +50,13 @@ let Home = (props) => {
             <button>Ver frutas</button>
           </div>
           <div className="categoryItem">
-            <img alt="verduras gif" src="/images/categoria-verduras.gif" />
+            <img alt="verduras" src={gifVerduras} />
             <span>Verduras</span>
             <p>¡Tomates,lechugas,calabazas,patatas,calabacín y más!</p>
             <button>Ver verduras</button>
           </div>
           <div className="categoryItem">
-            <img alt="encurtidos gif" src="/images/categoria-encurtidos.gif" />
+            <img alt="encurtidos" src={gifEncurtidos} />
             <span>Encurtidos</span>
             <p>
               ¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!
@@ -57,7 +64,7 @@ let Home = (props) => {
             <button>Ver encurtidos</button>
           </div>
           <div className="categoryItem">
-            <img alt="quesos gif" src="/images/categoria-quesos.gif" />
+            <img alt="quesos" src={gifQuesos} />
             <span>Quesos</span>
             <p>
               ¡Quesos de oveja , de cabra o mixto en queso entero medio o cuña!

@@ -5,20 +5,39 @@ nav {
     position: fixed;
     background-color: #0880009e;
 }
-
+nav>div:nth-child(2){
+    width: 171px;
+}
 
 .ulProductos>li>a {
     text-decoration: none;
-    color: black
+    color: black;
+    display: flex;
+    align-items: center;
 }
-
+.ulProductos>li>a>div {
+    text-decoration: none;
+    color: black;
+    width: 22px;
+}
 .carrito>a {
     display: flex;
     align-items: center;
     color: white;
     text-decoration: none;
 }
-
+.carrito>a>div{
+    width: 28px;
+}
+.cartLi>a>div{
+    width: 40px;
+}
+.buttonProducts>div{
+    width: 15px;
+}
+.buttonMenu>div{
+    width: 26px;
+}
 @media (max-width: 767px) {
     ul {
         margin: 0px;

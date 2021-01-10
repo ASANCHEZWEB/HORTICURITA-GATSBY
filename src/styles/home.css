@@ -109,17 +109,16 @@
     .buttonSectionOne {
         margin: 85px 0px 0px 0px;
         background: #088000d9;
-        padding: 14px;
-
+        padding: 12px;
         border-radius: 100px 100px 100px 100px;
         touch-action: manipulation;
-        border: none
-    }
-
-    .buttonSectionOne>a {
+        border: none;
         color: white;
+        font-size: 13px;
         text-decoration: none;
     }
+
+
 }
 
 
@@ -147,17 +146,14 @@
 
     .buttonSectionOne {
         margin: 85px 0px 0px 0px;
-        background: #088000d9;
-        padding: 14px;
-
-        border-radius: 100px 100px 100px 100px;
-        touch-action: manipulation;
-        border: none
-    }
-
-    .buttonSectionOne>a {
-        color: white;
-        text-decoration: none;
+    background: #088000d9;
+    padding: 12px;
+    border-radius: 100px 100px 100px 100px;
+    touch-action: manipulation;
+    border: none;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
     }
 }
 
@@ -187,15 +183,12 @@
     .buttonSectionOne {
         margin: 85px 0px 0px 0px;
         background: #088000d9;
-        padding: 14px;
-        border: none;
+        padding: 12px;
         border-radius: 100px 100px 100px 100px;
         touch-action: manipulation;
-
-    }
-
-    .buttonSectionOne>a {
+        border: none;
         color: white;
+        font-size: 13px;
         text-decoration: none;
     }
 }
