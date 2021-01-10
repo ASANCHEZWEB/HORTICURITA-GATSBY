@@ -40,6 +40,7 @@ if(claseProducts==="ulProductos"){
     
     <header>
     <Helmet>
+    <html lang="es"></html>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
     <link
