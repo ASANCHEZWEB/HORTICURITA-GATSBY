@@ -89,6 +89,17 @@ export const query = graphql`
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid
+          base64
+          tracedSVG
+          srcWebp
+          srcSetWebp
+          originalImg
+          originalName
+          sizes
+          src
+          srcSet
+          presentationHeight
+          presentationWidth
         }
       }
     }
