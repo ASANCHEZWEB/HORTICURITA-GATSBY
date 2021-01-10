@@ -8,11 +8,17 @@ import gifFrutas from "../images/categoria-frutas.gif";
 import gifVerduras from "../images/categoria-verduras.gif";
 import gifEncurtidos from "../images/categoria-encurtidos.gif";
 import gifQuesos from "../images/categoria-quesos.gif";
+import {Helmet} from "react-helmet";
 
 let Home = (props) => {
   //console.log(props.data.file.childImageSharp.fluid)
   return (
     <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <title>Horticurita| Comprar fruta , verdura , encurtidos , quesos y mas 24 horas</title>
+                <meta name="description" content="fruta y verdura al mejor precio " />
+    </Helmet>
       <NavBar />
       <section id="sectionTitle">
         <div className="containerTitle">
