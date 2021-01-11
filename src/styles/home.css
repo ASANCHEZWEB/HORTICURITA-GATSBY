@@ -58,13 +58,15 @@
     font-family: 'Montserrat';
     flex-direction: column;
 }
-
+.categoryItem>div{
+    width: 215px;
+}
 .categoryItem>span {
     font-weight: 800;
     font-size: 30px;
 }
 
-.categoryItem>button {
+.categoryItem>a {
     background-color: #0880009e;
     color: white;
     border: none;
@@ -73,6 +75,7 @@
     touch-action: manipulation;
     margin-top: 18px;
     outline: none;
+    text-decoration: none;
 }
 
 .categoryItem>p {

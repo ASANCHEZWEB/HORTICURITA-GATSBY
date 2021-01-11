@@ -9,9 +9,9 @@ import gifVerduras from "../images/categoria-verduras.gif";
 import gifEncurtidos from "../images/categoria-encurtidos.gif";
 import gifQuesos from "../images/categoria-quesos.gif";
 import {Helmet} from "react-helmet";
-
+import Footer from "../components/footer"
 let Home = (props) => {
-  //console.log(props.data.file.childImageSharp.fluid)
+ 
   return (
     <>
     <Helmet>
@@ -53,13 +53,23 @@ let Home = (props) => {
               ¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y
               más!
             </p>
-            <button>Ver frutas</button>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/frutas"
+            >
+              Ver frutas
+            </Link>
           </div>
           <div className="categoryItem">
             <img alt="verduras" src={gifVerduras} />
             <span>Verduras</span>
             <p>¡Tomates,lechugas,calabazas,patatas,calabacín y más!</p>
-            <button>Ver verduras</button>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/verduras"
+            >
+              Ver verduras
+            </Link>
           </div>
           <div className="categoryItem">
             <img alt="encurtidos" src={gifEncurtidos} />
@@ -67,7 +77,12 @@ let Home = (props) => {
             <p>
               ¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!
             </p>
-            <button>Ver encurtidos</button>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/encurtidos"
+            >
+              Ver encurtidos
+            </Link>
           </div>
           <div className="categoryItem">
             <img alt="quesos" src={gifQuesos} />
@@ -75,10 +90,135 @@ let Home = (props) => {
             <p>
               ¡Quesos de oveja , de cabra o mixto en queso entero medio o cuña!
             </p>
-            <button>Ver quesos</button>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/quesos"
+            >
+              Ver quesos
+            </Link>
           </div>
         </div>
       </section>
+      <section id="sectionTwoHome">
+        <div className="categories">
+          <h2>Categorías</h2>
+          <hr></hr>
+        </div>
+        <div className="containerCategories">
+          <div className="categoryItem">
+            <img alt="frutas" src={gifFrutas} />
+            <span>Frutas</span>
+            <p>
+              ¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y
+              más!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/frutas"
+            >
+              Ver frutas
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="verduras" src={gifVerduras} />
+            <span>Verduras</span>
+            <p>¡Tomates,lechugas,calabazas,patatas,calabacín y más!</p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/verduras"
+            >
+              Ver verduras
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="encurtidos" src={gifEncurtidos} />
+            <span>Encurtidos</span>
+            <p>
+              ¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/encurtidos"
+            >
+              Ver encurtidos
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="quesos" src={gifQuesos} />
+            <span>Quesos</span>
+            <p>
+              ¡Quesos de oveja , de cabra o mixto en queso entero medio o cuña!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/quesos"
+            >
+              Ver quesos
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section id="sectionTwoHome">
+        <div className="categories">
+          <h2>Categorías</h2>
+          <hr></hr>
+        </div>
+        <div className="containerCategories">
+          <div className="categoryItem">
+            <img alt="frutas" src={gifFrutas} />
+            <span>Frutas</span>
+            <p>
+              ¡Melones,pitahaya,kiwis,sandías,albaricoques,naranjas,fresas y
+              más!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/frutas"
+            >
+              Ver frutas
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="verduras" src={gifVerduras} />
+            <span>Verduras</span>
+            <p>¡Tomates,lechugas,calabazas,patatas,calabacín y más!</p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/verduras"
+            >
+              Ver verduras
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="encurtidos" src={gifEncurtidos} />
+            <span>Encurtidos</span>
+            <p>
+              ¡Pepinillos en vinagre,cebolla en vinagre,pinchos variados y más!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/encurtidos"
+            >
+              Ver encurtidos
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <img alt="quesos" src={gifQuesos} />
+            <span>Quesos</span>
+            <p>
+              ¡Quesos de oveja , de cabra o mixto en queso entero medio o cuña!
+            </p>
+            <Link
+              className="animate__animated animate__pulse animate__infinite"
+              to="/quesos"
+            >
+              Ver quesos
+            </Link>
+          </div>
+        </div>
+      </section>
+
+<Footer/>
     </>
   );
 };
