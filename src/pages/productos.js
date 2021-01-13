@@ -1,19 +1,24 @@
-import React from "react"
-import NavBar from "../components/navBar";
+import React from "react";
+import GetProductsService from "../components/getProductsService";
+import GetImage from "../components/getImage";
+import NavBar from "../components/navBar"
+import  Footer from "../components/footer"
+let Productos = (props) => {
+  console.log(GetProductsService({ category: "frutas" }));
+  return (
+    <>
+     
+<NavBar/>
+      
+          <GetImage altText="mierda" imageName="bananas.jpg"/>
+              
+                
+<Footer/>
+           
+     
+    
+    </>
+  );
+};
 
-
-let Productos =(props)=>{
-
-
-
-
-
-    return(
-        <>
-        <NavBar/>
-        <h1>esta es la pagina de productos</h1>
-        </>
-    )
-}
-
-export default Productos
+export default Productos;

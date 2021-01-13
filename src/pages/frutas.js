@@ -1,6 +1,6 @@
 import React from "react"
 import NavBar from "../components/navBar";
-
+import Footer from "../components/footer"
 
 let Frutas =(props)=>{
 
@@ -12,6 +12,7 @@ let Frutas =(props)=>{
         <>
         <NavBar/>
         <h1>esta es la pagina de frutas</h1>
+        <Footer/>
         </>
     )
 }

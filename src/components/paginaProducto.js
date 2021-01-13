@@ -10,12 +10,13 @@ let PageProduct=(props)=>{
         <Helmet>
                 <meta charSet="utf-8" />
                 <title>My Title</title>
-                <meta name="robots" content="noindex" />
+                <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
         <div className="blog-post-container">
           <div className="blog-post">
             <h1>{props.data.markdownRemark.frontmatter.slug}</h1>
-           
+            <h1>{props.data.markdownRemark.frontmatter.name}</h1>
+            <h1>{props.data.markdownRemark.frontmatter.price}</h1>
             </div>
         </div>
         </>
@@ -32,10 +33,9 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         slug
-        title
-        number
+        name
+        price
       }
     }
   }
