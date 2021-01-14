@@ -1,0 +1,22 @@
+.productsContainerItems{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.item {
+    width: 160px;
+    font-family: 'Montserrat';
+}
+
+.item>div:nth-child(1) {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.item>div:nth-child(1)>a {
+
+    text-decoration: none;
+    color: black;
+
+}

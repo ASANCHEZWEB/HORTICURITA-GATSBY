@@ -19,6 +19,7 @@ import { useStaticQuery, graphql } from "gatsby"
               desription
               imageName
               altText
+              formato
             }
           }
         }
