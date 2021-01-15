@@ -1,4 +1,6 @@
 import "./src/styles/global.css"
 
 // or:
-// require('./src/styles/global.css')
+if(localStorage.getItem("carrito")===null){
+    localStorage.setItem("carrito","[]")
+}

@@ -30,11 +30,31 @@ let GetImage = (props) => {
     }
   `);
 
-  let myImage = data.allImageSharp.edges.filter((element) => {
-    return element.node.fluid.originalName === props.imageName;
-  })[0].node.fluid;
 
-  return <Img fluid={myImage} alt={props.altText} />;
+
+
+
+  let myImage = data.allImageSharp.edges.filter((element) => {
+
+    return element.node.fluid.originalName === props.imageName;
+  })
+
+  if(myImage[0]!==undefined){
+    return <Img fluid={myImage[0].node.fluid} alt={props.altText} />;
+    
+  }else{
+    return <p>no encontrado</p>
+  }
+
+
+
+
+
+    
+  
+  
+
+  
 };
 
 export default GetImage;

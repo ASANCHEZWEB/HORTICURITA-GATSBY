@@ -5,5 +5,5 @@ name: "My first blog post"
 desription: "muy rica"
 altText: "bananas"
 price: 6
-imageName: "tomate-ensalada.jpg"
+imageName: "bananas.jpg"
 ---

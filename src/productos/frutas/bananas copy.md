@@ -3,8 +3,8 @@ slug: "/comprar/bananas"
 category: "frutas"
 name: "Bananas"
 price: 6
-altText: "bananas"
-imageName: "cerezas.jpg"
+altText: "peta"
+imageName: "bananas.jpg"
 desription: "muy rica"
 formato: "kg"
 
