@@ -31,7 +31,10 @@ let addToLocalStorage = (product) => {
   //primero busco si ya existe en el LS para actualizarlo
   let carritoArray = getCarrito();
 
-  let test =carritoArray.filter((element) => {return product.node.id === element.node.id}).length === 0;
+  let test =
+    carritoArray.filter((element) => {
+      return product.node.id === element.node.id;
+    }).length === 0;
 
   if (test === true) {
     // en caso de que no exista lo pushea al array
@@ -52,5 +55,11 @@ let addToLocalStorage = (product) => {
   }
 };
 
+let restProduct = (product) => {
+  
+
+
+  
+};
 //exportación de funciones para uso externo
-export { getCarrito, addToLocalStorage };
+export { getCarrito, addToLocalStorage, restProduct };

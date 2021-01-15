@@ -5,33 +5,56 @@ import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import { Link } from "gatsby";
 import "../styles/productos.css";
-import { getCarrito,addToLocalStorage } from "../components/localStorageService";
+import { getCarrito,addToLocalStorage,restProduct } from "../components/localStorageService";
 
 class Productos extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { arrayProducts: [], carrito: [] };
+    this.state = { arrayProducts: [] };
 
     this.getProducts = this.getProducts.bind(this);
-    this.getCarrito = this.getCarrito.bind(this);
-    this.addToLocal = this.addToLocal.bind(this)
+    this.getCarritoData = this.getCarritoData.bind(this);
+    this.addToLocal = this.addToLocal.bind(this);
+    this.restToLocal=this.restToLocal.bind(this);
   }
 
   getProducts() {
     let productos = [...this.props.data.allMarkdownRemark.edges];
     this.setState({ arrayProducts: productos });
+    return productos
   }
-  getCarrito() {
-    this.setState({ carrito: getCarrito() });
+  
+  getCarritoData() {
+
+    let arrayCarritoLS = getCarrito();
+    let arrayState = this.getProducts();
+
+    let newArrayState = arrayState.map((elementState) => {
+      let producto = elementState;
+      arrayCarritoLS.forEach((element) => {
+        if (element.node.id === elementState.node.id) {
+          producto = element;
+        }
+      })
+      return producto
+    })
+    this.setState({arrayProducts: newArrayState})
   }
 
   addToLocal(product){
     addToLocalStorage(product)
+    this.getCarritoData()
     
   }
+
+  restToLocal(product){
+    restProduct(product)
+    
+  }
+
   componentDidMount() {
     this.getProducts();
-    this.getCarrito();
+    this.getCarritoData();
   }
   render() {
     return (
@@ -66,7 +89,7 @@ class Productos extends React.Component {
                       )}
                     </div>
                     <div className="buttonsDivContainer">
-                      <button>-</button>
+                      <button  onClick={()=>{this.restToLocal(element)}}>-</button>
                       <span>{element.node.frontmatter.agregado}</span>
                       <button onClick={()=>{this.addToLocal(element)}}>+</button>
                     </div>

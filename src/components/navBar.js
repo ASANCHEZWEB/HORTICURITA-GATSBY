@@ -3,7 +3,7 @@ import "../styles/navBar.css";
 import { Link } from "gatsby";
 import {Helmet} from "react-helmet";
 import GetImage from "../components/getImage"
-
+import CounterNavBar from "../components/localStorageService"
 
  let NavBar= (props)=>{
      //abrir o cerrar menu
@@ -69,7 +69,7 @@ if(claseProducts==="ulProductos"){
           </ul>
         </div>
         <div> <Link to="/"><GetImage imageName="horticurita-logo.png" altText="logo horticurita"/></Link></div>
-        <div className="carrito"><Link to="/carro"><GetImage imageName="icono-carrito-blanco.png" altText="icono carrito"/>( 0 )</Link></div>
+        <CounterNavBar/>
       </nav>
     </header>
   )
