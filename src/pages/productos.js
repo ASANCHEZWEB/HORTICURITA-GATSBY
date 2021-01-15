@@ -5,7 +5,7 @@ import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import { Link } from "gatsby";
 import "../styles/productos.css";
-import { getCarrito } from "../components/localStorageService";
+import { getCarrito,addToLocalStorage } from "../components/localStorageService";
 
 class Productos extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Productos extends React.Component {
 
     this.getProducts = this.getProducts.bind(this);
     this.getCarrito = this.getCarrito.bind(this);
+    this.addToLocal = this.addToLocal.bind(this)
   }
 
   getProducts() {
@@ -21,10 +22,13 @@ class Productos extends React.Component {
     this.setState({ arrayProducts: productos });
   }
   getCarrito() {
-      console.log(getCarrito())
     this.setState({ carrito: getCarrito() });
   }
 
+  addToLocal(product){
+    addToLocalStorage(product)
+    
+  }
   componentDidMount() {
     this.getProducts();
     this.getCarrito();
@@ -33,32 +37,44 @@ class Productos extends React.Component {
     return (
       <>
         <NavBar />
-        <h1>Productos</h1>
-        <p>sleecciona desde medio kilo o desde una unidad!</p>
-        <hr></hr>
+        <div className="headerContainerTextProducts">
+          <h1>Productos</h1>
+          <p>sleecciona desde medio kilo o desde una unidad!</p>
+          <hr></hr>
+        </div>
+
         <section>
           <div className="productsContainerItems">
             {this.state.arrayProducts.map((element) => {
-              return (
-                <div key={element.node.id} className="item">
-                  <div>
-                    <Link to={element.node.frontmatter.slug}>
-                      <GetImage
-                        imageName={element.node.frontmatter.imageName}
-                        altText={element.node.frontmatter.altText}
-                      />
-                    </Link>
-                    <Link to={element.node.frontmatter.slug}>
-                      <span>{element.node.frontmatter.name}</span>
-                    </Link>
-                    {element.node.frontmatter.formato === "kg" ? (
-                      <span>{element.node.frontmatter.price}€/Kg</span>
-                    ) : (
-                      <span>{element.node.frontmatter.price}€/Ud</span>
-                    )}
+              if (element.node.frontmatter.category === "frutas") {
+                return (
+                  <div key={element.node.id} className="item">
+                    <div>
+                      <Link to={element.node.frontmatter.slug}>
+                        <GetImage
+                          imageName={element.node.frontmatter.imageName}
+                          altText={element.node.frontmatter.altText}
+                        />
+                      </Link>
+                      <Link to={element.node.frontmatter.slug}>
+                        <span>{element.node.frontmatter.name}</span>
+                      </Link>
+                      {element.node.frontmatter.formato === "kg" ? (
+                        <span>{element.node.frontmatter.price}€/Kg</span>
+                      ) : (
+                        <span>{element.node.frontmatter.price}€/Ud</span>
+                      )}
+                    </div>
+                    <div className="buttonsDivContainer">
+                      <button>-</button>
+                      <span>{element.node.frontmatter.agregado}</span>
+                      <button onClick={()=>{this.addToLocal(element)}}>+</button>
+                    </div>
                   </div>
-                </div>
-              );
+                );
+              } else {
+                return "";
+              }
             })}
           </div>
         </section>
@@ -84,6 +100,7 @@ export const query = graphql`
             price
             slug
             title
+            agregado
           }
         }
       }

@@ -1,8 +1,17 @@
-.productsContainerItems{
+.productsContainerItems {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
+
+.headerContainerTextProducts {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    align-items: center;
+}
+
 .item {
     width: 160px;
     font-family: 'Montserrat';
@@ -19,4 +28,31 @@
     text-decoration: none;
     color: black;
 
+}
+
+.buttonsDivContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonsDivContainer>:nth-child(1) {
+    border-radius: 200px 0px 10px 200px;
+    border: none;
+    background-color: greenyellow;
+    width: 38px;
+    font-size: 21px;
+    touch-action: manipulation;
+    outline: none;
+    cursor: pointer;
+}
+
+.buttonsDivContainer>:nth-child(3) {
+    border-radius: 0px 200px 200px 0px;
+    border: none;
+    background-color: greenyellow;
+    width: 38px;
+    font-size: 21px;
+    touch-action: manipulation;
+    outline: none;
+    cursor: pointer;
 }
