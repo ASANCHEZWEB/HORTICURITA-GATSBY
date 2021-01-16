@@ -12,33 +12,22 @@ class Productos extends React.Component {
     super(props);
     this.state = { arrayProducts: [] };
 
-    this.getProducts = this.getProducts.bind(this);
     this.getCarritoData = this.getCarritoData.bind(this);
     this.addToLocal = this.addToLocal.bind(this);
     this.restToLocal=this.restToLocal.bind(this);
   }
 
-  getProducts() {
-    let productos = [...this.props.data.allMarkdownRemark.edges];
-    this.setState({ arrayProducts: productos });
-    return productos
-  }
   
   getCarritoData() {
+    // este metodo lo que hace es comprobar las cantidades del carrito con la de graphql para modificar el estado y pintar el valor del carrito en pantalla
+    let arrayState = [...this.props.data.allMarkdownRemark.edges];
+    let arrayCarrito = getCarrito();
+    console.log("ignorar esto",arrayCarrito)
 
-    let arrayCarritoLS = getCarrito();
-    let arrayState = this.getProducts();
 
-    let newArrayState = arrayState.map((elementState) => {
-      let producto = elementState;
-      arrayCarritoLS.forEach((element) => {
-        if (element.node.id === elementState.node.id) {
-          producto = element;
-        }
-      })
-      return producto
+    this.setState({
+      arrayProducts: arrayState
     })
-    this.setState({arrayProducts: newArrayState})
   }
 
   addToLocal(product){
@@ -49,11 +38,10 @@ class Productos extends React.Component {
 
   restToLocal(product){
     restProduct(product)
-    
+    this.getCarritoData()
   }
 
   componentDidMount() {
-    this.getProducts();
     this.getCarritoData();
   }
   render() {
