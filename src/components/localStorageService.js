@@ -33,9 +33,11 @@ let addToLocalStorage = (product) => {
   let encontrado = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id}).length === 0;
   if (encontrado) {
     //SI NO SE ENCUENTRA EN EL CARRO , LE SUMAMOS UNO Y LO METEMOS
-    product.node.frontmatter.agregado=1
-    carritoLocalStorage.push(product)
+    let copiaElemento = {...product};
+    copiaElemento.node.frontmatter.agregado = 1
+    carritoLocalStorage.push(copiaElemento)
     localStorage.setItem("carrito", JSON.stringify(carritoLocalStorage))
+    product.node.frontmatter.agregado = 0;
   } else {
     //SI YA ESTA EN LOCAL STORAGE LO BUSCAMOS EN LS Y LE RESTAMOS UNO A AGREGADO
     let buscadoyAtualizado = carritoLocalStorage.map((elementLs) => {
@@ -57,15 +59,12 @@ let addToLocalStorage = (product) => {
 let restProduct = (product) => {
   let carritoLocalStorage = getCarrito();
   //BUSCAR EXISTENCIA DE PRODUCTO EN LOCALSTORAGE
-  let encontrado = carritoLocalStorage.filter((elementLs) => {
-    return elementLs.node.id === product.node.id
-  }).length === 1;
+  let encontrado = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id}).length === 1;
   //SI ESTA DENTRO DEL LOCAL STORAGE LE RESTAMOS UNO Y ACTUALIZAMOS EL LS
   if (encontrado) {
     //buscamos el producto y miramos que cantidad tiene actualmente para restarle 1 o eliminarlo directamente
-    let agregadoCount = carritoLocalStorage.filter((elementLs) => {
-      return elementLs.node.id === product.node.id
-    })[0].node.frontmatter.agregado;
+    let agregadoCount = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id})[0].node.frontmatter.agregado;
+
     if (agregadoCount === 1) {
       let newCarrito = carritoLocalStorage.filter((elementLs) => {
         return elementLs.node.id !== product.node.id
