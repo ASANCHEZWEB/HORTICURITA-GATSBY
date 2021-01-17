@@ -1,10 +1,10 @@
 ---
-slug: "/comprar/tomate-ensalada"
-category: "verduras"
-name: "tomate ensalada"
-price: 5
-altText: "bananas"
+slug: "/comprar/queso-oveja"
+category: "quesos"
+name: "queso"
+price: 24
 disponible: "si"
+altText: "queso-oveja"
 imageName: ["cerezas.jpg"]
 desription: "muy rica"
 agregado: 0

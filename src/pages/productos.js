@@ -63,9 +63,12 @@ class Productos extends React.Component {
 </Helmet>
         <NavBar />
         <div className="headerContainerTextProducts">
-          <h1>Productos</h1>
-          <p>sleecciona desde medio kilo o desde una unidad!</p>
-          <hr></hr>
+        <GetImage imageName="frutas-page-background.jpeg" altText="fresas"/>
+        <div> 
+        <h1>Productos</h1>
+        <p>Compra frutas , verduras , encurtidos , quesos y más .Puedes ver todo nuestro catálogo completo en esta página o si lo prefieres , ¡navega por nuestro menú clickeando<button onClick={()=>{document.querySelector('.buttonMenu').click();document.querySelector('.buttonProducts').click()}}>AQUÍ</button>!</p>
+       </div>
+         
         </div>
 
         <section>
@@ -84,7 +87,7 @@ class Productos extends React.Component {
                     <div>
                       <Link to={element.node.frontmatter.slug}>
                         <GetImage
-                          imageName={element.node.frontmatter.imageName}
+                          imageName={element.node.frontmatter.imageName[0]}
                           altText={element.node.frontmatter.altText}
                         />
                       </Link>
@@ -96,6 +99,13 @@ class Productos extends React.Component {
                       ) : (
                         <span>{element.node.frontmatter.price}€/Ud</span>
                       )}
+                      {element.node.frontmatter.disponible==="si"? <span><GetImage
+                          imageName="icono-stock-disponible.png"
+                          altText="icono stock disponible"
+                        />Disponible</span>:<span><GetImage
+                          imageName="icono-sin-stock.png"
+                          altText="icono stock no disponible"
+                        />No disponible</span>}
                     </div>
                     <div className="buttonsDivContainer">
                       <button  onClick={()=>{this.restToLocal(element)}}>-</button>
@@ -110,48 +120,7 @@ class Productos extends React.Component {
             })}
           </div>
         </section>
-        <section>
-        <div className="headerContainerTextProducts">
-          <h3>Verduras</h3>
-          <p>Comprar verdura a domicilio</p>
-          <hr></hr>
-        </div>
-
-
-          <div className="productsContainerItems">
-            {this.state.arrayProducts.map((element) => {
-              if (element.node.frontmatter.category === "verduras") {
-                return (
-                  <div key={element.node.id} className="item">
-                    <div>
-                      <Link to={element.node.frontmatter.slug}>
-                        <GetImage
-                          imageName={element.node.frontmatter.imageName}
-                          altText={element.node.frontmatter.altText}
-                        />
-                      </Link>
-                      <Link to={element.node.frontmatter.slug}>
-                        <span>{element.node.frontmatter.name}</span>
-                      </Link>
-                      {element.node.frontmatter.formato === "kg" ? (
-                        <span>{element.node.frontmatter.price}€/Kg</span>
-                      ) : (
-                        <span>{element.node.frontmatter.price}€/Ud</span>
-                      )}
-                    </div>
-                    <div className="buttonsDivContainer">
-                      <button  onClick={()=>{this.restToLocal(element)}}>-</button>
-                      <span>{element.node.frontmatter.formato==="kg"?element.node.frontmatter.agregado/2:element.node.frontmatter.agregado}</span>
-                      <button onClick={()=>{this.addToLocal(element)}}>+</button>
-                    </div>
-                  </div>
-                );
-              } else {
-                return "";
-              }
-            })}
-          </div>
-        </section>
+        
         <Footer />
       </>
     );
@@ -173,6 +142,7 @@ export const query = graphql`
             name
             price
             slug
+            disponible
             title
             agregado
           }

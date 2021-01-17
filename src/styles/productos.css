@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .headerContainerTextProducts {
@@ -10,6 +11,51 @@
     flex-direction: column;
     font-family: 'Montserrat';
     align-items: center;
+}
+
+.headerContainerTextProducts>div:nth-child(1) {
+    width: 100%;
+    position: absolute;
+    height: 440px;
+}
+
+.headerContainerTextProducts>div:nth-child(2) {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin-top: 50px;
+    max-width: 870px;
+    height: 348px;
+    justify-content: center;
+    background-color: #008000ab;
+}
+
+.headerContainerTextProducts>div:nth-child(2)>p {
+    max-width: 85%;
+    font-size: 21px;
+    text-align: center;
+}
+.headerContainerTextProducts>div:nth-child(2)>p>button{
+    background: none;
+    border: none;
+    color: #FFEB3B;
+    padding: 0px 7px;
+    font-size: 19px;
+    outline: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.headerContainerTextProducts>div:nth-child(2)>h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: 100;
+}
+
+
+section>.headerContainerTextProducts>:nth-child(1) {
+    font-size: 20px;
 }
 
 .item {
@@ -21,6 +67,17 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+
+.item>div:nth-child(1)>span:nth-child(4) {
+    display: flex;
+    justify-content: center;
+}
+
+.item>div:nth-child(1)>span:nth-child(4)>div {
+    display: flex;
+    width: 22px;
+    justify-content: center;
 }
 
 .item>div:nth-child(1)>a {
@@ -55,4 +112,28 @@
     touch-action: manipulation;
     outline: none;
     cursor: pointer;
+}
+
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+    .item {
+        width: 213px;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .item {
+        width: 213px;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .item {
+        width: 240px;
+    }
+
 }
