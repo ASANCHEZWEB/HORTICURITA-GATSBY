@@ -7,4 +7,5 @@ altText: "bananas"
 price: 6
 agregado: 0
 imageName: "bananas.jpg"
+formato: "unidades"
 ---

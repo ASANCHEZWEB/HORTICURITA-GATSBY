@@ -69,6 +69,13 @@ class Productos extends React.Component {
         </div>
 
         <section>
+        <div className="headerContainerTextProducts">
+          <h2>Frutas</h2>
+          <p>Comprar fruta a domicilio</p>
+          <hr></hr>
+        </div>
+
+
           <div className="productsContainerItems">
             {this.state.arrayProducts.map((element) => {
               if (element.node.frontmatter.category === "frutas") {
@@ -92,7 +99,49 @@ class Productos extends React.Component {
                     </div>
                     <div className="buttonsDivContainer">
                       <button  onClick={()=>{this.restToLocal(element)}}>-</button>
-                      <span>{element.node.frontmatter.agregado}</span>
+                      <span>{element.node.frontmatter.formato==="kg"?element.node.frontmatter.agregado/2:element.node.frontmatter.agregado}</span>
+                      <button onClick={()=>{this.addToLocal(element)}}>+</button>
+                    </div>
+                  </div>
+                );
+              } else {
+                return "";
+              }
+            })}
+          </div>
+        </section>
+        <section>
+        <div className="headerContainerTextProducts">
+          <h3>Verduras</h3>
+          <p>Comprar verdura a domicilio</p>
+          <hr></hr>
+        </div>
+
+
+          <div className="productsContainerItems">
+            {this.state.arrayProducts.map((element) => {
+              if (element.node.frontmatter.category === "verduras") {
+                return (
+                  <div key={element.node.id} className="item">
+                    <div>
+                      <Link to={element.node.frontmatter.slug}>
+                        <GetImage
+                          imageName={element.node.frontmatter.imageName}
+                          altText={element.node.frontmatter.altText}
+                        />
+                      </Link>
+                      <Link to={element.node.frontmatter.slug}>
+                        <span>{element.node.frontmatter.name}</span>
+                      </Link>
+                      {element.node.frontmatter.formato === "kg" ? (
+                        <span>{element.node.frontmatter.price}€/Kg</span>
+                      ) : (
+                        <span>{element.node.frontmatter.price}€/Ud</span>
+                      )}
+                    </div>
+                    <div className="buttonsDivContainer">
+                      <button  onClick={()=>{this.restToLocal(element)}}>-</button>
+                      <span>{element.node.frontmatter.formato==="kg"?element.node.frontmatter.agregado/2:element.node.frontmatter.agregado}</span>
                       <button onClick={()=>{this.addToLocal(element)}}>+</button>
                     </div>
                   </div>
