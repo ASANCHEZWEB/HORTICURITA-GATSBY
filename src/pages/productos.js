@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import { Link } from "gatsby";
 import "../styles/productos.css";
 import { getCarrito,addToLocalStorage,restProduct } from "../components/localStorageService";
+import {Helmet} from "react-helmet";
 
 class Productos extends React.Component {
   constructor(props) {
@@ -55,6 +56,11 @@ class Productos extends React.Component {
   render() {
     return (
       <>
+      <Helmet>
+<meta charSet="utf-8" />
+<title>Horticurita| Productos</title>
+<meta name="description" content="¡Compra desde medio kilo o por unidad!" />
+</Helmet>
         <NavBar />
         <div className="headerContainerTextProducts">
           <h1>Productos</h1>
