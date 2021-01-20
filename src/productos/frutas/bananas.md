@@ -1,11 +1,11 @@
 ---
 slug: "/comprar/bananas"
 category: "frutas"
-name: "platano"
+name: "banana"
 price: 6
 altText: "platano"
 disponible: "si"
-imageName: ["cerezas.jpg"]
+imageName: ["bananas.jpg"]
 desription: "muy rica"
 agregado: 0
 formato: "kg"

@@ -38,7 +38,56 @@ nav>div:nth-child(2){
 .buttonMenu>div{
     width: 26px;
 }
+.cartNoti{
+    width: 320px;
+    height: auto;
+    background: #ffffff;
+    position: fixed;
+    border: solid;
+    z-index: 18;
+    border-color: yellow;
+    border-style: dotted;
+    top: 65px;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    right: 1px;
+   display: none;
+    
+}
+.cartNoti>button{
+    background: none;
+    border: none;
+    font-size: 24px;
+    margin-left: 263px;
+    margin-top: 11px;
+    outline: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.cartNoti>img{
+    width: 50%;
+    margin: 21px 0px;
+}
+.cartNoti>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 20px;
+    justify-content: center;
+}
+.cartNoti>div>a{
+    text-decoration: none;
+    color: white;
+    background: #FFC107;
+    border-radius: 24px;
+    padding: 5px;
+    margin: 24px 0px;
+}
+
+
 @media (max-width: 767px) {
+    
     ul {
         margin: 0px;
         padding: 0px;

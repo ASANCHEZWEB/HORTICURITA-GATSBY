@@ -37,8 +37,7 @@ if(claseProducts==="ulProductos"){
 }
 
   return (
-    
-    <header>
+    <>
     <Helmet>
     <html lang="es"></html>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
@@ -48,6 +47,7 @@ if(claseProducts==="ulProductos"){
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     </Helmet>
+    <header>
       <nav>
         <div>
         <button className="buttonMenu" onClick={() => abrirCerrar()}>  {estadoMenu==="cerrado" ? <GetImage imageName="menu-cerrado.png" altText="icono menu"/> : <GetImage imageName="cerrar-menu.png" altText="icono cerrar menu"/>}</button>
@@ -72,6 +72,7 @@ if(claseProducts==="ulProductos"){
         <CounterNavBar/>
       </nav>
     </header>
+    </>
   )
 };
 

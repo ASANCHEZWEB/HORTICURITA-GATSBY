@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .productsContainerItems {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .headerContainerTextProducts {
@@ -12,6 +15,7 @@
     font-family: 'Montserrat';
     align-items: center;
 }
+
 
 .headerContainerTextProducts>div:nth-child(1) {
     width: 100%;
@@ -37,7 +41,8 @@
     font-size: 21px;
     text-align: center;
 }
-.headerContainerTextProducts>div:nth-child(2)>p>button{
+
+.headerContainerTextProducts>div:nth-child(2)>p>button {
     background: none;
     border: none;
     color: #FFEB3B;
@@ -47,6 +52,7 @@
     touch-action: manipulation;
     cursor: pointer;
 }
+
 .headerContainerTextProducts>div:nth-child(2)>h1 {
     color: white;
     font-size: 45px;
@@ -55,23 +61,47 @@
 
 
 section>.headerContainerTextProducts>:nth-child(1) {
-    font-size: 20px;
+    font-size: 34px;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+section>.headerContainerTextProducts {
+    align-items: flex-start;
+    margin-left: 30px;
+
+}
+
+section>.headerContainerTextProducts>hr {
+    margin: 0px;
+    width: 60px;
+    height: 3px;
+    border: none;
+    background-color: green;
 }
 
 .item {
-    width: 160px;
+    width: 144px;
     font-family: 'Montserrat';
+    border: solid;
+    border-width: 1px;
+    margin: 7px;
+    border-color: #ffff0080;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 42px -12px rgba(0,0,0,0.75);
 }
 
 .item>div:nth-child(1) {
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 17px;
 }
 
 .item>div:nth-child(1)>span:nth-child(4) {
     display: flex;
     justify-content: center;
+    margin-top: 17px;
 }
 
 .item>div:nth-child(1)>span:nth-child(4)>div {
@@ -81,10 +111,11 @@ section>.headerContainerTextProducts>:nth-child(1) {
 }
 
 .item>div:nth-child(1)>a {
-
     text-decoration: none;
     color: black;
-
+    font-family: Pacifico;
+    margin-bottom: 12px;
+    font-size: 25px;
 }
 
 .buttonsDivContainer {
@@ -118,7 +149,7 @@ section>.headerContainerTextProducts>:nth-child(1) {
 @media screen and (min-width: 426px) and (max-width: 768px) {
 
     .item {
-        width: 213px;
+        width: 197px;
     }
 
 }
@@ -129,11 +160,26 @@ section>.headerContainerTextProducts>:nth-child(1) {
         width: 213px;
     }
 
+    .buttonsDivContainer>:nth-child(1) {
+        width: 55px;
+    }
+    
+    .buttonsDivContainer>:nth-child(3) {
+        width: 55px;
+    }
+
+
 }
 
 @media (min-width: 1025px) {
     .item {
-        width: 240px;
+        width: 276px;
     }
-
+    .buttonsDivContainer>:nth-child(1) {
+        width: 70px;
+    }
+    
+    .buttonsDivContainer>:nth-child(3) {
+        width: 70px;
+    }
 }

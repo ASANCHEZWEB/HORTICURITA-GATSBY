@@ -4,3 +4,15 @@ import "./src/styles/global.css"
 if(localStorage.getItem("carrito")===null){
     localStorage.setItem("carrito","[]")
 }
+
+
+let divCarro=document.createElement('div')
+divCarro.setAttribute("class", "cartNoti");
+
+
+document.querySelector('body').appendChild(divCarro)
+
+
+
+
+console.log(divCarro)
