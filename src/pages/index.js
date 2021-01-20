@@ -4,10 +4,10 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/home.css";
 import { Link } from "gatsby";
-import gifFrutas from "../../public/images/categoria-frutas.gif";
-import gifVerduras from "../../public/images/categoria-verduras.gif";
-import gifEncurtidos from "../../public/images/categoria-encurtidos.gif";
-import gifQuesos from "../../public/images/categoria-quesos.gif";
+import gifFrutas from "../images/categoria-frutas.gif";
+import gifVerduras from "../images/categoria-verduras.gif";
+import gifEncurtidos from "../images/categoria-encurtidos.gif";
+import gifQuesos from "../images/categoria-quesos.gif";
 import {Helmet} from "react-helmet";
 import Footer from "../components/footer"
 let Home = (props) => {
