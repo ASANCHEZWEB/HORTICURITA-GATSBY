@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import "../styles/navBar.css";
 import { Link } from "gatsby";
 import {Helmet} from "react-helmet";
-import GetImage from "../components/getImage"
-import CounterNavBar from "../components/localStorageService"
+import GetImage from "../components/getImage";
+import CounterNavBar from "../components/localStorageService";
+
 
  let NavBar= (props)=>{
      //abrir o cerrar menu
@@ -47,6 +48,8 @@ if(claseProducts==="ulProductos"){
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     </Helmet>
+
+   
     <header>
       <nav>
         <div>

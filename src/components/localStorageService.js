@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import GetImage from "../components/getImage";
 
+
 // este componente  solo devuelve el contador del carro para pintarlo en la navbar
 export default function CounterNavBar(props) {
   const [counter, setCounter] = useState(0);
@@ -39,6 +40,7 @@ function myFunction() {
 
 
 let mostrarCuadro=(info)=>{
+   
   clearTimeout(myVar);
 let elementoNoti=document.querySelector('.cartNoti')
 let formato =""
@@ -55,9 +57,13 @@ if(info.operacion==="Eliminado"){
   alDel="al"
 }
 
+
+
 let contenidoitem=`
 <button id="demo">X</button>
-<img src="../images/${info.producto.node.frontmatter.imageName}"></img>
+
+
+<img src="../../${info.producto.node.frontmatter.imageName}"></img>
 <div><span>${info.operacion} ${formato} de ${info.producto.node.frontmatter.name} ${alDel} carrito</span>
 
 <a href="/carro">Ver Carrito</a>
@@ -75,6 +81,9 @@ document.getElementById("demo").addEventListener("click", function() {
   document.querySelector('.cartNoti').setAttribute("class","cartNoti animate__animated animate__fadeOutRightBig")
 });
 
+
+
+
 }
 
 
@@ -89,7 +98,9 @@ let getCarrito = () => {
   return JSON.parse(localStorage.getItem("carrito"));
 };
 
+
 let addToLocalStorage = (product) => {
+
   if(product.node.frontmatter.disponible==="si"){
     mostrarCuadro({producto:product,operacion:"Añadido"})
 let carritoLocalStorage = getCarrito();
