@@ -144,7 +144,9 @@ section>.headerContainerTextProducts>hr {
     outline: none;
     cursor: pointer;
 }
-
+section{
+    margin-top: 50px;
+}
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
 

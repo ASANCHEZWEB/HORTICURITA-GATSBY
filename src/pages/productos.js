@@ -5,7 +5,7 @@ import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import { Link } from "gatsby";
 import "../styles/productos.css";
-import { getCarrito,addToLocalStorage,restProduct } from "../components/localStorageService";
+import { addToLocalStorage,restProduct,filtrarPorDisponibles } from "../components/localStorageService";
 import {Helmet} from "react-helmet";
 
 class Productos extends React.Component {
@@ -23,19 +23,7 @@ class Productos extends React.Component {
     
   
   getCarritoData() {
-    // este metodo lo que hace es comprobar las cantidades del carrito con la de graphql para modificar el estado y pintar el valor del carrito en listado
-    let arrayCarrito = getCarrito();
-    let arrayState = this.props.data.allMarkdownRemark.edges;
-    let nuevoArray = arrayState.map((elementState) => {
-      let producto = elementState;
-      arrayCarrito.forEach((elementLs) => {
-        if (elementState.node.id === elementLs.node.id) {
-          producto = elementLs
-        }
-      })
-      return producto
-    })
-    this.setState({arrayProducts:nuevoArray})
+    this.setState({arrayProducts:filtrarPorDisponibles(this.props.data.allMarkdownRemark.edges)})
   }
 
   addToLocal(product){

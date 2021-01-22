@@ -25,8 +25,7 @@ export default function CounterNavBar(props) {
 
 
 
-var myVar;
-
+let myVar;
 function myFunction() {
   myVar = setTimeout(function(){ 
     
@@ -34,18 +33,11 @@ function myFunction() {
   }, 4000);
 }
 
-
-
-
-
-
 let mostrarCuadro=(info)=>{
-   
   clearTimeout(myVar);
 let elementoNoti=document.querySelector('.cartNoti')
 let formato =""
 let alDel=""
-
 if(info.producto.node.frontmatter.formato==="kg"){
   formato = "0.5 Kgs"
 }else{
@@ -56,18 +48,11 @@ if(info.operacion==="Eliminado"){
 }else{
   alDel="al"
 }
-
-
-
 let contenidoitem=`
 <button id="demo">X</button>
-
-
 <img src="../../${info.producto.node.frontmatter.imageName}"></img>
 <div><span>${info.operacion} ${formato} de ${info.producto.node.frontmatter.name} ${alDel} carrito</span>
-
 <a href="/carro">Ver Carrito</a>
-
 </div>
 
 `
@@ -80,10 +65,6 @@ myFunction()
 document.getElementById("demo").addEventListener("click", function() {
   document.querySelector('.cartNoti').setAttribute("class","cartNoti animate__animated animate__fadeOutRightBig")
 });
-
-
-
-
 }
 
 
@@ -168,7 +149,32 @@ let restProduct = (product) => {
 }
 
 
+let filtrarPorDisponibles = (arrayState) => {
+  // este metodo lo que hace es comprobar las cantidades del carrito con la de graphql para modificar el estado y pintar el valor del carrito en listado
+  let arrayCarrito = getCarrito();
+  let nuevoArray = arrayState.map((elementState) => {
+    let producto = elementState;
+    arrayCarrito.forEach((elementLs) => {
+      if (elementState.node.id === elementLs.node.id) {
+        producto = elementLs
+      }
+    })
+    return producto
+  })
+  //ahora cogemos los disponibles en un array y luego los no en otro y los junto para que esten los disponibles primero y los no como segundos
+  let disponibles = []
+  let noDisponibles = []
+  nuevoArray.forEach((element) => {
+    if (element.node.frontmatter.disponible === "si") {
+      disponibles.push(element)
+    } else {
+      noDisponibles.push(element)
+    }
 
+  })
+  //devuelvo un array de productos ordenador por disponibilidad
+  return disponibles.concat(noDisponibles)
+}
 
 
 
@@ -179,4 +185,4 @@ let restProduct = (product) => {
 
 
 //exportación de funciones para uso externo
-export { getCarrito, addToLocalStorage, restProduct };
+export { getCarrito, addToLocalStorage, restProduct,filtrarPorDisponibles };

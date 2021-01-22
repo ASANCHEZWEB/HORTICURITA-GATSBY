@@ -15,4 +15,3 @@ document.querySelector('body').appendChild(divCarro)
 
 
 
-console.log(divCarro)
