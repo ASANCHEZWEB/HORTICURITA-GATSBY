@@ -1,5 +1,5 @@
 ---
-slug: "/comprar/bananas"
+slug: "/comprar/cerezas"
 category: "frutas"
 name: "platano"
 price: 6

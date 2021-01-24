@@ -1,0 +1,68 @@
+.productDetailContainer{
+    margin-top: 65px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.containerImagesPd{
+    width: 320px;
+}
+.sliderImages{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sliderImages>button{
+    width: 106px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    touch-action: manipulation;
+}
+.prodDetTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.prodDetTitle>h1{
+    font-family: 'Pacifico';
+}
+.prodDetTitle>span{
+    font-family: "Montserrat";
+    margin: 7px 0px;
+}
+.prodDetTitle>span:nth-child(3){
+    display: flex;
+    align-items: center;
+}
+.prodDetTitle>span:nth-child(3)>div{
+    width: 22px;
+}
+.buttonsProdDet{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.buttonsProdDet>button:nth-child(1){
+    border-radius: 200px 0px 10px 200px;
+    border: none;
+    background-color: greenyellow;
+    width: 55px;
+    font-size: 21px;
+    touch-action: manipulation;
+    outline: none;
+    cursor: pointer;
+}
+.buttonsProdDet>button:nth-child(3){
+    border-radius: 0px 200px 200px 0px;
+    border: none;
+    background-color: greenyellow;
+    width: 55px;
+    font-size: 21px;
+    touch-action: manipulation;
+    outline: none;
+    cursor: pointer;
+}

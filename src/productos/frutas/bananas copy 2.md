@@ -1,5 +1,5 @@
 ---
-slug: "/comprar/bananas"
+slug: "/comprar/platano-rosa"
 category: "frutas"
 name: "platano"
 price: 6

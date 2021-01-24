@@ -50,7 +50,7 @@ if(info.operacion==="Eliminado"){
 }
 let contenidoitem=`
 <button id="demo">X</button>
-<img src="../../${info.producto.node.frontmatter.imageName}"></img>
+<img src="../../${info.producto.node.frontmatter.imageName[0]}"></img>
 <div><span>${info.operacion} ${formato} de ${info.producto.node.frontmatter.name} ${alDel} carrito</span>
 <a href="/carro">Ver Carrito</a>
 </div>
