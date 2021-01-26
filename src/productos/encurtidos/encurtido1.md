@@ -6,8 +6,9 @@ price: 10
 altText: "pepinillos en vinagre"
 disponible: "si"
 imageName: ["cerezas.jpg","bananas.jpg","cerezas.jpg","cerezas.jpg","bananas.jpg"]
-desription: "muy rica"
+desription: <p>nose</p>
 agregado: 0
 formato: "unidades"
 
 ---
+

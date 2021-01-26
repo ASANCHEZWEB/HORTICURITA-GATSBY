@@ -25,6 +25,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 37px;
+    width: 268px;
+    text-align: center;
 }
 .prodDetTitle>h1{
     font-family: 'Pacifico';
@@ -45,6 +48,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 23px 0px;
 }
 .buttonsProdDet>button:nth-child(1){
     border-radius: 200px 0px 10px 200px;
@@ -65,4 +69,9 @@
     touch-action: manipulation;
     outline: none;
     cursor: pointer;
+}
+.productDetDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
