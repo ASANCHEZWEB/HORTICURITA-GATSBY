@@ -1,17 +1,20 @@
-.productDetailContainer{
-    margin-top: 65px;
+.productDetailContainer {
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.containerImagesPd{
+
+.containerImagesPd {
     width: 320px;
 }
-.sliderImages{
+
+.sliderImages {
     display: flex;
     flex-wrap: wrap;
 }
-.sliderImages>button{
+
+.sliderImages>button {
     width: 106px;
     cursor: pointer;
     border: none;
@@ -21,7 +24,8 @@
     outline: none;
     touch-action: manipulation;
 }
-.prodDetTitle{
+
+.prodDetTitle {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,28 +33,34 @@
     width: 268px;
     text-align: center;
 }
-.prodDetTitle>h1{
+
+.prodDetTitle>h1 {
     font-family: 'Pacifico';
 }
-.prodDetTitle>span{
+
+.prodDetTitle>span {
     font-family: "Montserrat";
     margin: 7px 0px;
 }
-.prodDetTitle>span:nth-child(3){
+
+.prodDetTitle>span:nth-child(3) {
     display: flex;
     align-items: center;
 }
-.prodDetTitle>span:nth-child(3)>div{
+
+.prodDetTitle>span:nth-child(3)>div {
     width: 22px;
 }
-.buttonsProdDet{
+
+.buttonsProdDet {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 23px 0px;
 }
-.buttonsProdDet>button:nth-child(1){
+
+.buttonsProdDet>button:nth-child(1) {
     border-radius: 200px 0px 10px 200px;
     border: none;
     background-color: greenyellow;
@@ -60,7 +70,8 @@
     outline: none;
     cursor: pointer;
 }
-.buttonsProdDet>button:nth-child(3){
+
+.buttonsProdDet>button:nth-child(3) {
     border-radius: 0px 200px 200px 0px;
     border: none;
     background-color: greenyellow;
@@ -70,8 +81,36 @@
     outline: none;
     cursor: pointer;
 }
-.productDetDescription{
+
+.productDetDescription {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px 0px;
+    width: 87%;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    max-width: 1050px;
+    line-height: 25px;
+}
+
+.productDetDescription>span {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.productDetDescription>hr {
+    background: #8bc34a;
+    height: 2px;
+    border: none;
+    border-radius: 4px;
+    margin: 12px 0px;
+}
+
+.productDetDescription>hr:nth-child(2) {
+    width: 50%
+}
+
+.productDetDescription>hr:nth-child(3) {
+    width: 100%;
 }

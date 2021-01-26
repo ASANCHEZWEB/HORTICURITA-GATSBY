@@ -88,11 +88,16 @@ addToLocalStorage({node:productObj})
         </div>
         
       </div>
-      <div className="productDetDescription">
+      {props.data.markdownRemark.frontmatter.desription!==""?<div className="productDetDescription">
           <span>Descripción</span>
-         <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.frontmatter.desription }}></div>
-          
-        </div>
+          <hr></hr>
+          <hr></hr>
+         <div className="divDescriptionProd" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.frontmatter.desription }}></div>
+        </div>:""}
+      
+
+
+
       <Footer />
     </>
   );
