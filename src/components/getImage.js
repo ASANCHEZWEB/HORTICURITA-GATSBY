@@ -9,7 +9,7 @@ let GetImage = (props) => {
         edges {
           node {
             id
-            fluid(quality: 100){
+            fluid{
               ...GatsbyImageSharpFluid
               originalName
               base64
