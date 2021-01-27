@@ -92,6 +92,7 @@
     font-family: 'Montserrat';
     max-width: 1050px;
     line-height: 25px;
+    text-align: center;
 }
 
 .productDetDescription>span {
@@ -113,4 +114,15 @@
 
 .productDetDescription>hr:nth-child(3) {
     width: 100%;
+}
+.relatedProducts{
+    padding: 30px 0px;
+    width: 87%;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    max-width: 1050px;
+}
+.relatedProducts>span{
+    font-weight: 700;
+    font-size: 25px;
 }

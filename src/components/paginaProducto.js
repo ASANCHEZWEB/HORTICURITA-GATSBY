@@ -6,6 +6,7 @@ import GetImage from "../components/getImage";
 import "../styles/productPage.css";
 import React, { useEffect, useState,useCallback } from "react";
 import {getCarrito,addToLocalStorage, restProduct} from "../components/localStorageService";
+import RelatedProducts from "../components/relatedProductsData";
 
 let PageProduct = (props) => {
   const [arrayImages, setArrayImages] = useState([]);
@@ -51,9 +52,15 @@ addToLocalStorage({node:productObj})
 
 
 
+
+
+
+
   useEffect(() => {
   setArrayImages(props.data.markdownRemark.frontmatter.imageName);
   innerFunction()
+  
+
   },[props,innerFunction]);
 
  
@@ -95,7 +102,11 @@ addToLocalStorage({node:productObj})
          <div className="divDescriptionProd" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.frontmatter.desription }}></div>
         </div>:""}
       
+<div className="relatedProducts">
+<span>Productos relacionados</span>
 
+<RelatedProducts category={props.data.markdownRemark.frontmatter.category} idProduct={props.data.markdownRemark.id}/>
+</div>
 
 
       <Footer />
@@ -123,4 +134,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+
+
 export default PageProduct;
