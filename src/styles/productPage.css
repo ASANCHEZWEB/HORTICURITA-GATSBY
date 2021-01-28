@@ -126,3 +126,28 @@
     font-weight: 700;
     font-size: 25px;
 }
+
+
+.relatedProdsCont{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 22px 0px;
+}
+.relatedProdsCont>div{
+    width: 129px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5px 5px;
+    justify-content: space-between;
+}
+.relatedProdsCont>div>span{
+    margin: 9px 0px
+}
+.relatedProdsCont>div>a:nth-child(3){
+    width: 100%;
+    background-color: #0880009e;
+    text-decoration: none;
+    color: white;
+    padding: 9px 0px;
+}

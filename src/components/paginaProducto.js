@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql,Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
@@ -6,13 +6,18 @@ import GetImage from "../components/getImage";
 import "../styles/productPage.css";
 import React, { useEffect, useState,useCallback } from "react";
 import {getCarrito,addToLocalStorage, restProduct} from "../components/localStorageService";
-import RelatedProducts from "../components/relatedProductsData";
+
+
 
 let PageProduct = (props) => {
+  //GUARDADO DE ESTADOS
   const [arrayImages, setArrayImages] = useState([]);
   const[productAgregado,setProductAgregado]=useState(0);
+  const [arrayRelatedFinal, setarrayRelatedFinal] = useState([]);
 
 
+
+//CAMBIAR IMAGEN PRINCIPAL POR  UNA DE LAS PEQUEÑAS SELECCIONADA POR EL USUARIO
 let changeImagePos=(imageName,index)=>{
 let arrayImageChange=arrayImages.filter((image,indexPos)=>{
   return indexPos !== index
@@ -22,8 +27,8 @@ setArrayImages(arrayImageChange)
 
 }
 
-
-const innerFunction = useCallback(() => {
+//BUSCAR LA INFORMACION DEL CARRITO PARA VERIFICAR LA CANTIDAD YA AÑADADIDA(SI LA HAY) Y ASI ACTUALIZARLO
+const getCarroData = useCallback(() => {
   let findProduct=getCarrito().filter((element)=>{
     return element.node.id===props.data.markdownRemark.id
     
@@ -37,31 +42,74 @@ if(findProduct.length===1){
 },[props.data.markdownRemark.id]);
 
 
-
+//FUNCION QUE EJECUTA OTRA DE LOCALSTORAJE PARA RESTAR 1  A LA CANTIDAD DEL PRODCUCTO EN CARRITO
 let restProductAction=(productObj)=>{
   restProduct({node:productObj})
-  innerFunction()
+  getCarroData()
   
 }
-
+//FUNCION QUE EJECUTA OTRA DE LOCALSTORAJE PARA SUMAR 1  A LA CANTIDAD DEL PRODCUCTO EN CARRITO
 let addProductAction=(productObj)=>{
 addToLocalStorage({node:productObj})
-  innerFunction()
+getCarroData()
+
+}
+//CREACION DE UN ARRAY DE ESTADO CON 5 PRODUCTOS ALEATORIOS DE LA MISMA CATEGORIA Y EN CASO DE NO HABER MAS DE 5 DE UNA CATEGORIA , METE PRODUCTOS DE OTRAS .
+const getRelatedData = useCallback(() => {
+  let arrayProducts = props.data.allMarkdownRemark.edges.filter((element)=>{
+    return element.node.id!==props.data.markdownRemark.id && element.node.frontmatter.category===props.data.markdownRemark.frontmatter.category && element.node.frontmatter.disponible ==="si"
+})
+ let arrayOtherProducts = props.data.allMarkdownRemark.edges.filter((element)=>{
+  return element.node.id!==props.data.markdownRemark.id && element.node.frontmatter.category!==props.data.markdownRemark.frontmatter.category && element.node.frontmatter.disponible ==="si"
+ })
+
+if(arrayProducts.length>=5){
+let arraySelect = []
+do {
+  let item = arrayProducts[Math.floor(Math.random() * arrayProducts.length)];
+  if(arraySelect.indexOf(item) < 0){
+    arraySelect.push(item)
+  }
+} while (arraySelect.length < 5);
+  setarrayRelatedFinal(arraySelect)
+}
+if(arrayProducts.length<5){
+  let concatedArrays=arrayProducts.concat(arrayOtherProducts);
+  let arraySelect = [...arrayProducts];
+
+  if(concatedArrays.length<=5){
+    setarrayRelatedFinal(concatedArrays)
+  }else{
+    do {
+      let item = arrayOtherProducts[Math.floor(Math.random() * arrayOtherProducts.length)];
+      if(arraySelect.indexOf(item) < 0){
+        arraySelect.push(item)
+      }
+    } while (arraySelect.length < 5);
+      setarrayRelatedFinal(arraySelect)
+  }
+ 
+  
 
 }
 
 
 
-
-
-
-
-  useEffect(() => {
-  setArrayImages(props.data.markdownRemark.frontmatter.imageName);
-  innerFunction()
   
 
-  },[props,innerFunction]);
+
+},[props.data.allMarkdownRemark.edges,props.data.markdownRemark.frontmatter.category,props.data.markdownRemark.id]);
+
+
+
+//ESTE HOOK DE EFECTO , SE EJECUTA DESPUES DEL RENDER Y GUARDA EL ARRAY DE IMAGENES EN EL ESTADO , 
+//OBTIENE DATOS DEL CARRO(SI LO HAY) Y GENERA PRODUCTOS RELACIONADOS.
+useEffect(() => {
+  setArrayImages(props.data.markdownRemark.frontmatter.imageName);
+  getCarroData()
+  getRelatedData()
+}, [getCarroData,props.data.markdownRemark.frontmatter.imageName,getRelatedData]);
+ 
 
  
   return (
@@ -105,7 +153,16 @@ addToLocalStorage({node:productObj})
 <div className="relatedProducts">
 <span>Productos relacionados</span>
 
-<RelatedProducts category={props.data.markdownRemark.frontmatter.category} idProduct={props.data.markdownRemark.id}/>
+
+<div className="relatedProdsCont">
+{arrayRelatedFinal.map((element)=>{
+    return <div key={element.node.id}>
+    <Link to={element.node.frontmatter.slug}> <GetImage imageName={element.node.frontmatter.imageName[0]} altText={element.node.frontmatter.altText}/></Link>
+    <span>{element.node.frontmatter.name}</span>
+    <Link to={element.node.frontmatter.slug}>Ver producto</Link>
+    </div>
+})}
+  </div>
 </div>
 
 
@@ -114,6 +171,8 @@ addToLocalStorage({node:productObj})
   );
 };
 
+
+//PEDIMOS LA INFORMACION DEL PRODUCTO EN CONCRETO Y TAMBIEN DE TODOS LOS PRODUCTOS PARA GENERAL LOS DATOS DE PRODCUCTOS RELACIONADOS
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -130,6 +189,21 @@ export const pageQuery = graphql`
         disponible
         title
         agregado
+      }
+    },
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            imageName
+            altText
+            category
+            slug
+            disponible
+            name
+          }
+        }
       }
     }
   }
