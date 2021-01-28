@@ -93,11 +93,6 @@ if(arrayProducts.length<5){
 
 }
 
-
-
-  
-
-
 },[props.data.allMarkdownRemark.edges,props.data.markdownRemark.frontmatter.category,props.data.markdownRemark.id]);
 
 
@@ -152,8 +147,6 @@ useEffect(() => {
       
 <div className="relatedProducts">
 <span>Productos relacionados</span>
-
-
 <div className="relatedProdsCont">
 {arrayRelatedFinal.map((element)=>{
     return <div key={element.node.id}>
