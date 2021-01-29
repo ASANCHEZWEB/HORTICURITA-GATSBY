@@ -80,10 +80,12 @@ let getCarrito = () => {
 };
 
 
-let addToLocalStorage = (product) => {
+let addToLocalStorage = (product,fromCart) => {
 
   if(product.node.frontmatter.disponible==="si"){
-    mostrarCuadro({producto:product,operacion:"Añadido"})
+
+    if(fromCart!==true){mostrarCuadro({producto:product,operacion:"Añadido"})} 
+    
 let carritoLocalStorage = getCarrito();
   //BUSCAR EXISTENCIA DE PRODUCTO EN LOCALSTORAGE
   let encontrado = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id}).length === 0;

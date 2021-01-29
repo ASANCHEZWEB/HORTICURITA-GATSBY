@@ -44,6 +44,7 @@
     width: 25px;
     padding: 0px;
     outline: none;
+    cursor: pointer;
     touch-action: manipulation;
 }
 

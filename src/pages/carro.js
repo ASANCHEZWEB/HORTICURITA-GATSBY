@@ -1,5 +1,5 @@
 import React from "react";
-import { getCarrito,deleteCartProduct } from "../components/localStorageService";
+import { getCarrito,deleteCartProduct,addToLocalStorage } from "../components/localStorageService";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import "../styles/cart.css";
@@ -12,7 +12,8 @@ class Carro extends React.Component {
     this.state = { arrayProducts: [] };
 
     this.getCarritoData = this.getCarritoData.bind(this);
-    this.deleteProduct=this.deleteProduct.bind(this)
+    this.deleteProduct=this.deleteProduct.bind(this);
+    this.addProduct=this.addProduct.bind(this)
   }
 
   getCarritoData() {
@@ -24,6 +25,15 @@ deleteProduct(productId){
     deleteCartProduct(productId)
     this.getCarritoData()
 }
+
+addProduct(product){
+    addToLocalStorage(product,true)
+this.getCarritoData()
+
+}
+
+
+
 
   componentDidMount() {
     this.getCarritoData();
@@ -51,7 +61,7 @@ deleteProduct(productId){
                     <div className="displayItemData">
                     <span>CANTIDAD: </span>
                     
-                    <div className="containerButtonsCart"><button>-</button>{element.node.frontmatter.formato==="unidades"? <span>{element.node.frontmatter.agregado}</span>: <span>{element.node.frontmatter.agregado/2}</span>}<button>+</button></div>
+                    <div className="containerButtonsCart"><button>-</button>{element.node.frontmatter.formato==="unidades"? <span>{element.node.frontmatter.agregado}</span>: <span>{element.node.frontmatter.agregado/2}</span>}<button onClick={()=>this.addProduct(element)}>+</button></div>
                     </div>
                     {element.node.frontmatter.formato==="unidades"? <div className="displayItemData"><strong>SUBTOTAL: </strong><span>{element.node.frontmatter.price*element.node.frontmatter.agregado}€</span></div>: <div className="displayItemData"><strong>SUBTOTAL: </strong><span>{(element.node.frontmatter.price*element.node.frontmatter.agregado/2)}€</span></div>}
                     
