@@ -24,6 +24,7 @@
     border-width: 1px;
     border-color: #ffeb3b;
     padding: 18px 0px;
+    box-shadow: 0px 0px 33px -5px rgba(0,0,0,0.75);
 }
 
 .totalCartPay {
@@ -113,4 +114,28 @@
 
 .containerButtonsCart>button:nth-child(3) {
     border-radius: 0 200px 200px 0;
+}
+/* MODAL DE ELIMINAR CARRO */
+.modalDeleteCart{
+    width: 297px;
+    margin: 10px;
+    border: solid;
+    border-width: 1px;
+    border-color: #ff0000;
+    padding: 18px 0px;
+    box-shadow: 0px 0px 33px -5px rgb(255 0 0 / 75%);
+    font-family: 'Montserrat';
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 372px;
+    
+}
+.modalDeleteCart>a{
+    width: 148px;
+    margin-top: 39px;
+}
+.modalDeleteCart>span{
+    padding: 22px 0px;
 }

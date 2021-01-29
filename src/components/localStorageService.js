@@ -117,13 +117,14 @@ let carritoLocalStorage = getCarrito();
 
 
 
-let restProduct = (product) => {
+let restProduct = (product,fromCart) => {
   let carritoLocalStorage = getCarrito();
   //BUSCAR EXISTENCIA DE PRODUCTO EN LOCALSTORAGE
   let encontrado = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id}).length === 1;
   //SI ESTA DENTRO DEL LOCAL STORAGE LE RESTAMOS UNO Y ACTUALIZAMOS EL LS
   if (encontrado) {
-    mostrarCuadro({producto:product,operacion:"Eliminado"})
+    if(fromCart!==true){mostrarCuadro({producto:product,operacion:"Eliminado"})}
+    
     //buscamos el producto y miramos que cantidad tiene actualmente para restarle 1 o eliminarlo directamente
     let agregadoCount = carritoLocalStorage.filter((elementLs) => {return elementLs.node.id === product.node.id})[0].node.frontmatter.agregado;
 
