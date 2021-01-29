@@ -88,9 +88,6 @@ if(arrayProducts.length<5){
     } while (arraySelect.length < 5);
       setarrayRelatedFinal(arraySelect)
   }
- 
-  
-
 }
 
 },[props.data.allMarkdownRemark.edges,props.data.markdownRemark.frontmatter.category,props.data.markdownRemark.id]);

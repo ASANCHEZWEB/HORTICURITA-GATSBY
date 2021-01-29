@@ -178,11 +178,15 @@ let filtrarPorDisponibles = (arrayState) => {
 
 
 
-
+let deleteCartProduct =(productId)=>{
+localStorage.setItem("carrito", JSON.stringify(getCarrito().filter((element)=>{
+  return element.node.id!==productId
+})))
+}
 
 
 
 
 
 //exportación de funciones para uso externo
-export { getCarrito, addToLocalStorage, restProduct,filtrarPorDisponibles };
+export { getCarrito, addToLocalStorage, restProduct,filtrarPorDisponibles,deleteCartProduct };

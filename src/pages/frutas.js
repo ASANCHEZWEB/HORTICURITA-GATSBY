@@ -19,9 +19,6 @@ class Productos extends React.Component {
     
   }
 
-  
-    
-  
   getCarritoData() {
     this.setState({arrayProducts:filtrarPorDisponibles(this.props.data.allMarkdownRemark.edges)})
   }
