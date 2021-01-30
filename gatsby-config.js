@@ -16,6 +16,11 @@ module.exports = {
         path: `${__dirname}/src/productos`,
       },
     },
-    
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["SALUDO"]
+      },
+    }
   ],
 }
