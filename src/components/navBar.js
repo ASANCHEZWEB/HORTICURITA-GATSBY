@@ -47,6 +47,7 @@ if(claseProducts==="ulProductos"){
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <meta name="googlebot" content="noindex" />
     </Helmet>
 
    

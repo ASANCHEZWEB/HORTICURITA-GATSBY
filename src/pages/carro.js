@@ -102,7 +102,7 @@ return element.node.delete===false?<div className="itemCart" key={element.node.i
 :
 <div key={element.node.id} className="modalDeleteCart animate__animated animate__pulse animate__infinite">
    <Link to={element.node.frontmatter.slug}><GetImage imageName={element.node.frontmatter.imageName[0]} altText={element.node.frontmatter.altText}/></Link>
-<strong role="img" aria-labelledby="imagen asombro">{this.state.modalInfo==="delete"?"¿Está seguro?":"¿Cantidad 0?😱"}</strong>
+<strong role="img" aria-labelledby="imagen asombro">{this.state.modalInfo==="delete"?"¿Está seguro?":"¿Cantidad 0 ?😱"}</strong>
 <span>¿Desea eliminar {element.node.frontmatter.name} del carrito?😢</span>
 <div>
 <button onClick={()=>this.cerrarModal(element,false)} type="button" aria-label="Eliminar">¡No!</button>
