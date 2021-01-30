@@ -52,6 +52,7 @@ if(claseProducts==="ulProductos"){
 
    
     <header>
+    <h1>{process.env.SALUDO}</h1>
       <nav>
         <div>
         <button className="buttonMenu" onClick={() => abrirCerrar()}>  {estadoMenu==="cerrado" ? <GetImage imageName="menu-cerrado.png" altText="icono menu"/> : <GetImage imageName="cerrar-menu.png" altText="icono cerrar menu"/>}</button>
