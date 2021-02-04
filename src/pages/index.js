@@ -19,7 +19,7 @@ let Home = (props) => {
                 <title>Horticurita| Comprar fruta , verdura , encurtidos , quesos y mas 24 horas</title>
                 <meta name="description" content="fruta y verdura al mejor precio " />
     </Helmet>
-      <NavBar />
+       <NavBar /> 
       <section id="sectionTitle">
         <div className="containerTitle">
           <div className="containerGreenText ">
@@ -218,7 +218,7 @@ let Home = (props) => {
         </div>
       </section>
 
-<Footer/>
+ <Footer/> 
     </>
   );
 };

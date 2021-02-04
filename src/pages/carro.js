@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import "../styles/cart.css";
 import GetImage from "../components/getImage";
 import { Link } from "gatsby";
-
+import Product from "../components/paypalButtons"
 class Carro extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,7 @@ class Carro extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   getCarritoData() {
     this.setState({ arrayProducts: getCarrito().map((element)=>{element.node.delete=false;return element})});
@@ -92,6 +93,7 @@ if(descuento.length!==0){
   render() {
     return (
       <>
+      
         <NavBar />
 
         <main className="mainContainerCart">
@@ -245,13 +247,34 @@ if(descuento.length!==0){
                 <form onSubmit={this.handleSubmit}>
                   <div><GetImage imageName="icono-descuento.png" altText="icono cupon descuento"/><span>Código descuento o influencer</span><GetImage imageName="icono-descuento.png" altText="icono cupon descuento"/></div>
                   <input placeholder="Si tienes un código aplícalo aquí!😉" type="text" value={this.state.codigoCupon} onChange={this.handleChange}/>
-                  <input type="submit" value="APLICAR" />
+                  <button type="submit">APLICAR</button>
+                
+                  
                   {this.state.discountApply===0?<div className="notificationDesc animate__animated animate__shakeX"><GetImage imageName="icono-sin-stock.png" altText="icono sin stock"/><span>Código no encontrado</span></div>:""}
                   {this.state.discountApply.namecode!==undefined?<div className="notificationDesc animate__animated animate__shakeY"><GetImage imageName="icono-stock-disponible.png" altText="icono stock"/><span>¡Código aplicado!</span></div>:""}
                 </form>
                
               </div>
-              <div className="containerResumenCart"></div>
+              <div className="containerResumenCart">
+                <h3>TOTAL CARRITO</h3>
+                <hr></hr>
+                <div><span>Subtotal:</span><span>0</span></div>
+                <div><span>Impuestos(IVA):</span><span>0</span></div>
+                <div><span>Descuento:</span><span>-0%</span></div>
+                <div><span>Gastos de envío:</span><span>Desde 3.99€</span></div>
+                <hr></hr>
+                <div><strong>TOTAL:</strong><span>0€</span></div>
+              </div>
+              {/* <button className="finalizarCompraButton animate__animated animate__pulse animate__infinite" id="paypal-button-container">FINALIZAR COMPRA</button> */}
+             
+              
+              <Product/>
+              
+              
+
+        
+
+              
             </div>
           </div>}
         </main>

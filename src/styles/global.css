@@ -1,3 +1,5 @@
 body{
-    margin:0px
+    width: 100% !important;
+    margin: 0 auto;
 }
+input, select { font-size: 100%; }

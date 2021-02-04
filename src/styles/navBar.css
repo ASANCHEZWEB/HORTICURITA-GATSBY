@@ -104,7 +104,9 @@ nav>div:nth-child(2) {
     padding: 5px;
     margin: 24px 0px;
 }
-
+.cartLi{
+    padding-bottom: 200px;
+}
 @media (max-width: 767px) {
     ul {
         margin: 0px;
@@ -148,6 +150,7 @@ nav>div:nth-child(2) {
         margin-top: 19px;
         height: 100vh;
         background: white;
+        overflow-y: scroll;
     }
 
     .showList {
@@ -239,6 +242,7 @@ nav>div:nth-child(2) {
         font-family: 'Montserrat', sans-serif;
         display: flex;
         align-items: center;
+        overflow-y: scroll;
     }
 
     .listadoNavBar>li>a {

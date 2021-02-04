@@ -12,7 +12,3 @@ divCarro.setAttribute("class", "cartNoti");
 
 document.querySelector('body').appendChild(divCarro)
 
-
-
-
-

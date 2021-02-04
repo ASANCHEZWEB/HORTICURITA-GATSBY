@@ -32,6 +32,8 @@
 .totalCartPay {
     width: 320px;
     margin: 75px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .itemCart>div:nth-child(1) {
@@ -170,54 +172,60 @@
     background: #4caf50;
     padding: 14px 17px;
 }
+
 /* TERMINA AQUI LA MAQUETACION DE LA MODAL */
 
-.containerDescuento>form>div:nth-child(1){
+.containerDescuento>form>div:nth-child(1) {
     display: flex;
     justify-content: center;
 }
-.containerDescuento>form>div:nth-child(1)>div{
+
+.containerDescuento>form>div:nth-child(1)>div {
     width: 22px;
 }
-.containerDescuento>form{
+
+.containerDescuento>form {
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat';
     font-size: 17px;
 }
-.containerDescuento>form>input:nth-child(2){
+
+.containerDescuento>form>input:nth-child(2) {
     border: 1px solid yellowgreen;
     padding: 10px 0px;
     margin: 10px 0px;
     outline: none;
     text-align: center;
+    touch-action: manipulation;
 }
-.containerDescuento>form>input:nth-child(3){
+
+.containerDescuento>form>button:nth-child(3) {
     border: none;
+    border-radius: 0px;
     padding: 5px 0px;
     margin: 10px 0px;
+    width: 100%;
     font-family: Montserrat;
-    color: white ;
-    background-color: rgb(241, 197, 69) ;
+    color: white;
+    background-color: rgb(241, 197, 69);
     touch-action: manipulation;
     cursor: pointer;
     outline: none;
+    font-size: 16px;
+    height: 28px;
 }
-.notificationDesc{
+
+.notificationDesc {
     justify-content: center;
     display: flex;
 }
-.notificationDesc>div{
+
+.notificationDesc>div {
     width: 22px;
 }
-.containerResumenCart{
-    height: 467px;
-    background-color: rgb(246, 246, 246);
-    margin: 0px auto 153px;
-    font-family: Montserrat;
-    color: rgb(58, 128, 29);
-}
-.carroVacio{
+
+.carroVacio {
     font-family: 'Montserrat';
     text-align: center;
     width: 320px;
@@ -227,14 +235,53 @@
     align-items: center;
     color: green;
 }
-.carroVacio>div{
+
+.carroVacio>div {
     width: 154px;
 }
-.carroVacio>a{
+
+.carroVacio>a {
     background-color: rgb(241, 197, 69);
     padding: 12px;
     font-weight: 900;
     color: white;
     margin-left: 14px;
     text-decoration: none;
+}
+
+.containerResumenCart {
+    height: 467px;
+    background-color: rgb(246, 246, 246);
+    font-family: Montserrat;
+    color: rgb(58, 128, 29);
+    margin: 48px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerResumenCart>hr {
+    width: 70%;
+    border: none;
+    height: 1px;
+    background-color: rgb(222, 222, 222);
+}
+
+.containerResumenCart>div {
+    display: flex;
+    width: 77%;
+    margin: 24px 0px;
+    justify-content: space-between;
+}
+.finalizarCompraButton{
+    background-color: rgb(241, 197, 69);
+    border: none;
+    font-family: Montserrat;
+    padding: 13px;
+    margin: 0 auto;
+    font-size: 16px;
+    outline: none;
+    width: 200px;
+    color: white;
+    touch-action: manipulation;
 }
