@@ -117,10 +117,14 @@
 
 .containerButtonsCart>button:nth-child(1) {
     border-radius: 200px 0 10px 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .containerButtonsCart>button:nth-child(3) {
     border-radius: 0 200px 200px 0;
+    display: flex;
+    justify-content: center;
 }
 
 /* MODAL DE ELIMINAR CARRO */

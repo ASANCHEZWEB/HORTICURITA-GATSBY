@@ -152,12 +152,12 @@ if(descuento.length!==0){
                       {element.node.frontmatter.formato === "unidades" ? (
                         <div className="displayItemData">
                           <span>PRECIO/Ud: </span>
-                          <span>{element.node.frontmatter.price}/Ud</span>
+                          <span>{element.node.frontmatter.price}€/Ud</span>
                         </div>
                       ) : (
                         <div className="displayItemData">
                           <span>PRECIO/Kg: </span>
-                          <span>{element.node.frontmatter.price}/Kg</span>
+                          <span>{element.node.frontmatter.price}€/Kg</span>
                         </div>
                       )}
                       <div className="displayItemData">

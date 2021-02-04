@@ -70,11 +70,19 @@ if(claseProducts==="ulProductos"){
             </li>
             <li><Link to="/nosotros">NOSOTROS</Link></li>
             <li><Link to="/contacto">CONTACTO</Link></li>
-            <li className="cartLi"><Link to="/carro"><GetImage imageName="icono-carrito-verde.png" altText="icono carrito verde"/><span>CARRITO (0)</span></Link></li>
+            <li className="cartLi"><Link to="/carro"><GetImage imageName="icono-carrito-verde.png" altText="icono carrito verde"/><span>CARRITO ( <CounterNavBar/> )</span></Link></li>
           </ul>
         </div>
         <div> <Link to="/"><GetImage imageName="horticurita-logo.png" altText="logo horticurita"/></Link></div>
-        <CounterNavBar/>
+        <div className="carrito">
+      <Link to="/carro">
+        <GetImage
+          imageName="icono-carrito-blanco.png"
+          altText="icono carrito"
+        />
+        ( <CounterNavBar/> )
+      </Link>
+    </div>
       </nav>
     </header>
     </>

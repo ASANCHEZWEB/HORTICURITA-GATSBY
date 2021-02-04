@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
-import GetImage from "../components/getImage";
+
 
 
 // este componente  solo devuelve el contador del carro para pintarlo en la navbar
@@ -10,15 +9,7 @@ export default function CounterNavBar(props) {
     setCounter(JSON.parse(localStorage.getItem("carrito")).length);
   }, 1000);
   return (
-    <div className="carrito">
-      <Link to="/carro">
-        <GetImage
-          imageName="icono-carrito-blanco.png"
-          altText="icono carrito"
-        />
-        ( {counter} )
-      </Link>
-    </div>
+    <>{counter}</>
   );
 }
 

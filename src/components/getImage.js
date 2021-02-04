@@ -3,8 +3,9 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
 let GetImage = (props) => {
+ 
   const data = useStaticQuery(graphql`
-    {
+  {
       allImageSharp {
         edges {
           node {
