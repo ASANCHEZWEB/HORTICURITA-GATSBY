@@ -8,9 +8,9 @@ function Product(props) {
   const paypalRef = useRef();
 
   useEffect(() => {
-      
-    window.paypal
-      .Buttons({
+let miPaypal= window;
+    
+miPaypal.paypal.Buttons({
         createOrder: (data, actions) => {
           return actions.order.create({
             purchase_units: [{
@@ -105,6 +105,7 @@ function Product(props) {
         },
       })
       .render(paypalRef.current);
+
   }, []);
 
   if (paidFor) {
