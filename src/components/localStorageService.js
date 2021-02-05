@@ -29,7 +29,7 @@ let mostrarCuadro=(info)=>{
 let elementoNoti=document.querySelector('.cartNoti')
 let formato =""
 let alDel=""
-if(info.producto.node.frontmatter.formato==="kg"){
+if(info.producto.node.frontmatter.formato==="kilogramos"){
   formato = "0.5 Kgs"
 }else{
   formato= "1 Ud"

@@ -2,7 +2,7 @@
 slug: "/comprar/tomate-ensalada"
 category: "verduras"
 name: "Tomate ensalada (CAJA)"
-price: 5
+price: 6.4
 altText: "bananas"
 disponible: "si"
 imageName: ["cerezas.jpg"]

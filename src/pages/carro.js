@@ -7,7 +7,7 @@ import Product from "../components/paypalButtons"
 class Carro extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { arrayProducts: [] ,modalInfo:"",codigoCupon:"",discountCodes:[],discountApply:""};
+    this.state = { arrayProducts: [] ,modalInfo:"",ivas:{},codigoCupon:"",discountCodes:[],discountApply:"",totalCarrito:{}};
 
     this.getCarritoData = this.getCarritoData.bind(this);
     this.deleteProduct=this.deleteProduct.bind(this);
@@ -17,12 +17,16 @@ class Carro extends React.Component {
     this.cerrarModal=this.cerrarModal.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createTotalCartObj=this.createTotalCartObj.bind(this)
   }
 
 
   getCarritoData() {
-    this.setState({ arrayProducts: getCarrito().map((element)=>{element.node.delete=false;return element})});
+    this.setState({ arrayProducts: getCarrito().map((element)=>{element.node.delete=false;return element}),ivas:JSON.parse(process.env.IVAS)},()=>this.createTotalCartObj());
+    
   }
+
+
 
 
 deleteProduct(productId){
@@ -30,14 +34,15 @@ deleteProduct(productId){
     this.getCarritoData()
 }
 
+
+
+
 deleteModal(product,type){
 let arrayDeleteBox= this.state.arrayProducts.map((element)=>{
     if(element.node.id===product.node.id){element.node.delete=true}else{element.node.delete=false}
     return element
 })
-
 this.setState({arrayProducts:arrayDeleteBox,modalInfo:type})
-
 }
 
 
@@ -58,6 +63,8 @@ cerrarModal(element, deleteElement) {
     }
 }
 
+
+
 restProd(product){
     if(product.node.frontmatter.agregado!==1){
         restProduct(product,true)
@@ -66,9 +73,15 @@ restProd(product){
         this.deleteModal(product,"rest")
     }
 }
+
+
+
+
 handleChange(event) {
   this.setState({codigoCupon: event.target.value});
 }
+
+
 
 handleSubmit(event) {
   event.preventDefault();
@@ -80,14 +93,62 @@ if(descuento.length!==0){
 }else{
   this.setState({discountApply:0})
 }
-
-
 }
+
+
+createTotalCartObj(){
+let subtotal=Number([...this.state.arrayProducts.map(element=>{
+if(element.node.frontmatter.formato==="kilogramos"){
+  return (element.node.frontmatter.price*element.node.frontmatter.agregado)/2
+}else{
+  return element.node.frontmatter.price*element.node.frontmatter.agregado
+}
+})].reduce((valorAnterior, valorActual)=>{
+  return valorAnterior + valorActual;
+}, 0).toFixed(2))
+
+
+let impuestos=Number([...this.state.arrayProducts.map(element=>{
+  if(element.node.frontmatter.formato==="kilogramos"){
+    return (((element.node.frontmatter.price*element.node.frontmatter.agregado)/2)*this.state.ivas[element.node.frontmatter.category])/100;
+  }else{
+    return ((element.node.frontmatter.price*element.node.frontmatter.agregado)*this.state.ivas[element.node.frontmatter.category])/100;
+  }
+  })].reduce((valorAnterior, valorActual)=>{
+    return valorAnterior + valorActual;
+  }, 0).toFixed(2))
+
+
+  let descuento=0;
+
+let gastosEnvio=JSON.parse(process.env.GASTOSENVIO);
+
+
+
+let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2));
+
+
+
+
+  this.setState({totalCarrito:{subTotal:subtotal,impuestos:impuestos,descuento:descuento,gastosEnvio:gastosEnvio,total:total}});
+  
+  
+}
+
+
+
 
   componentDidMount() {
     this.getCarritoData();
     this.setState({discountCodes:JSON.parse(process.env.CODIGOSDESCUENTO)})
+    
   }
+
+
+
+
+
+
   render() {
     return (
       <>
@@ -121,24 +182,14 @@ if(descuento.length!==0){
                   return element.node.delete === false ? (
                     <div className="itemCart" key={element.node.id}>
                       <div>
-                        <button
-                          onClick={() => this.deleteModal(element, "delete")}
-                          type="button"
-                          aria-label="Eliminar"
-                        >
-                          <GetImage
-                            imageName="icono-eliminar.png"
-                            altText="icono eliminar producto"
-                          />
+                        <button onClick={() => this.deleteModal(element, "delete")} type="button" aria-label="Eliminar">
+                          <GetImage imageName="icono-eliminar.png" altText="icono eliminar producto"/>
                         </button>
                       </div>
                       <div className="imageItemCart">
                         {" "}
                         <Link to={element.node.frontmatter.slug}>
-                          <GetImage
-                            imageName={element.node.frontmatter.imageName[0]}
-                            altText={element.node.frontmatter.altText}
-                          />
+                          <GetImage imageName={element.node.frontmatter.imageName[0]} altText={element.node.frontmatter.altText}/>
                         </Link>
                       </div>
                       <div className="displayItemData">
@@ -182,8 +233,7 @@ if(descuento.length!==0){
                         <div className="displayItemData">
                           <strong>SUBTOTAL: </strong>
                           <span>
-                            {element.node.frontmatter.price *
-                              element.node.frontmatter.agregado}
+                            {(element.node.frontmatter.price *element.node.frontmatter.agregado).toFixed(2)}
                             €
                           </span>
                         </div>
@@ -191,9 +241,7 @@ if(descuento.length!==0){
                         <div className="displayItemData">
                           <strong>SUBTOTAL: </strong>
                           <span>
-                            {(element.node.frontmatter.price *
-                              element.node.frontmatter.agregado) /
-                              2}
+                            {((element.node.frontmatter.price *element.node.frontmatter.agregado) /2).toFixed(2)}
                             €
                           </span>
                         </div>
@@ -205,10 +253,7 @@ if(descuento.length!==0){
                       className="modalDeleteCart animate__animated animate__pulse animate__infinite"
                     >
                       <Link to={element.node.frontmatter.slug}>
-                        <GetImage
-                          imageName={element.node.frontmatter.imageName[0]}
-                          altText={element.node.frontmatter.altText}
-                        />
+                        <GetImage imageName={element.node.frontmatter.imageName[0]} altText={element.node.frontmatter.altText}/>
                       </Link>
                       <strong role="img" aria-labelledby="imagen asombro">
                         {this.state.modalInfo === "delete"
@@ -256,12 +301,12 @@ if(descuento.length!==0){
               <div className="containerResumenCart">
                 <h3>TOTAL CARRITO</h3>
                 <hr></hr>
-                <div><span>Subtotal:</span><span>0</span></div>
-                <div><span>Impuestos(IVA):</span><span>0</span></div>
-                <div><span>Descuento:</span><span>-0%</span></div>
-                <div><span>Gastos de envío:</span><span>Desde 3.99€</span></div>
+                <div><span>Subtotal:</span><span>{this.state.totalCarrito.subTotal}€</span></div>
+                <div><span>Impuestos(IVA):</span><span>{this.state.totalCarrito.impuestos}€</span></div>
+                <div><span>Descuento:</span><span>-{this.state.totalCarrito.descuento}€</span></div>
+                <div><span>Gastos de envío:</span><span>{this.state.totalCarrito.gastosEnvio}€</span></div>
                 <hr></hr>
-                <div><strong>TOTAL:</strong><span>0€</span></div>
+                <div><strong>TOTAL:</strong><span>{this.state.totalCarrito.total}€</span></div>
               </div>
               {/* <button className="finalizarCompraButton animate__animated animate__pulse animate__infinite" id="paypal-button-container">FINALIZAR COMPRA</button> */}
              

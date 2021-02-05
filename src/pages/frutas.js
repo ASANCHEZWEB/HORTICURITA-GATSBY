@@ -78,7 +78,7 @@ class Productos extends React.Component {
                       <Link to={element.node.frontmatter.slug}>
                         <span>{element.node.frontmatter.name}</span>
                       </Link>
-                      {element.node.frontmatter.formato === "kg" ? (
+                      {element.node.frontmatter.formato === "kilogramos" ? (
                         <span>{element.node.frontmatter.price}€/Kg</span>
                       ) : (
                         <span>{element.node.frontmatter.price}€/Ud</span>
@@ -93,8 +93,8 @@ class Productos extends React.Component {
                     </div>
                     <div className="buttonsDivContainer">
                       <button  onClick={()=>{this.restToLocal(element)}}>-</button>
-                      <span>{element.node.frontmatter.formato==="kg"?element.node.frontmatter.agregado/2:element.node.frontmatter.agregado}</span>
-                      <button onClick={()=>{this.addToLocal(element)}}>+</button>
+                      <span>{element.node.frontmatter.formato==="kilogramos"?element.node.frontmatter.agregado/2:element.node.frontmatter.agregado}</span>
+                      <button className={element.node.frontmatter.agregado===0?"animate__animated animate__heartBeat animate__repeat-3":""} onClick={()=>{this.addToLocal(element)}}>+</button>
                     </div>
                   </div>
                 );

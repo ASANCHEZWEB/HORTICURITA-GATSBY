@@ -2,12 +2,12 @@
 slug: "/comprar/manzana"
 category: "frutas"
 name: "platano"
-price: 6
+price: 1.3
 altText: "platano"
-disponible: "no"
+disponible: "si"
 imageName: ["cerezas.jpg"]
 desription: "muy rica"
 agregado: 0
-formato: "kg"
+formato: "kilogramos"
 
 ---

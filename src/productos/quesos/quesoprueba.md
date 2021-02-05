@@ -2,7 +2,7 @@
 slug: "/comprar/queso-oveja"
 category: "quesos"
 name: "queso"
-price: 24
+price: 5.57
 disponible: "si"
 altText: "queso-oveja"
 imageName: ["cerezas.jpg"]

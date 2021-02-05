@@ -122,13 +122,13 @@ useEffect(() => {
         </div>
         <div className="prodDetTitle">
           <h1>{props.data.markdownRemark.frontmatter.name}</h1>
-          <span>{props.data.markdownRemark.frontmatter.price}{props.data.markdownRemark.frontmatter.formato==="kg"? "€/Kg":"€/Ud"}</span>
+          <span>{props.data.markdownRemark.frontmatter.price}{props.data.markdownRemark.frontmatter.formato==="kilogramos"? "€/Kg":"€/Ud"}</span>
           {props.data.markdownRemark.frontmatter.disponible==="si"? <span><GetImage imageName="icono-stock-disponible.png" altText="icono stock disponible"/>Disponible</span>:<span><GetImage imageName="icono-sin-stock.png" altText="icono stock no disponible" />No disponible</span>}
             
             <div className="buttonsProdDet">
               <button onClick={()=>restProductAction(props.data.markdownRemark)}>-</button>
-              <span>{props.data.markdownRemark.frontmatter.formato==="kg"?productAgregado/2:productAgregado}</span>
-              <button onClick={()=>addProductAction(props.data.markdownRemark)}>+</button>
+              <span>{props.data.markdownRemark.frontmatter.formato==="kilogramos"?productAgregado/2:productAgregado}</span>
+              <button  className={productAgregado===0?"animate__animated animate__heartBeat animate__repeat-2":""} onClick={()=>addProductAction(props.data.markdownRemark)}>+</button>
             </div>
         </div>
         

@@ -2,7 +2,7 @@
 slug: "/comprar/cebollas-en-3"
 category: "encurtidos"
 name: "3"
-price: 5
+price: 5.56
 altText: "cebollas en vinagre"
 disponible: "si"
 imageName: ["cerezas.jpg","bananas.jpg","cerezas.jpg","cerezas.jpg","bananas.jpg"]
