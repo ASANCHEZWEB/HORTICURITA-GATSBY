@@ -1,5 +1,5 @@
 import React from "react"
-import NavBar from "../components/navBar";
+
 
 
 let CondicionesGenerales =(props)=>{
@@ -10,7 +10,7 @@ let CondicionesGenerales =(props)=>{
 
     return(
         <>
-        <NavBar/>
+       
         <h1>esta es la pagina de condiciones generales</h1>
         </>
     )

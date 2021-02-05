@@ -8,10 +8,14 @@ function Product(props) {
   const paypalRef = useRef();
 
   useEffect(() => {
+
+
+    
 let miPaypal= window;
     
 miPaypal.paypal.Buttons({
         createOrder: (data, actions) => {
+          console.log(actions)
           return actions.order.create({
             purchase_units: [{
               reference_id: "PUHF",

@@ -57,20 +57,20 @@ if(claseProducts==="ulProductos"){
         <div>
         <button className="buttonMenu" onClick={() => abrirCerrar()}>  {estadoMenu==="cerrado" ? <GetImage imageName="menu-cerrado.png" altText="icono menu"/> : <GetImage imageName="cerrar-menu.png" altText="icono cerrar menu"/>}</button>
           <ul className={clase}>
-            <li><Link to="/">INICIO</Link></li>
+            <li><Link to="/" onClick={() => abrirCerrar()}>INICIO</Link></li>
             <li>
               <button className="buttonProducts" onClick={() => verProductos()}>PRODUCTOS<GetImage imageName="flecha-hacia-abajo.png" altText="flecha hacia abajo"/></button>
               <ul className={claseProducts}>
-                <li><Link to="/productos">Catálogo completo</Link></li>
+                <li><Link to="/productos" onClick={() => {verProductos();abrirCerrar()}}>Catálogo completo</Link></li>
                 <li><hr/></li>
-                <li><Link to="/frutas"><GetImage imageName="icono-cereza.png" altText="icono cerezas"/>Frutas</Link></li>
-                <li><Link to="/verduras"><GetImage imageName="icono-cebolla.png" altText="icono cebolla"/>Verduras</Link></li>
-                <li><Link to="/encurtidos"><GetImage imageName="icono-encurtidos.png" altText="icono encurtidos"/>Encurtidos</Link></li>
+                <li><Link to="/frutas" onClick={() => {verProductos();abrirCerrar()}}><GetImage imageName="icono-cereza.png" altText="icono cerezas"/>Frutas</Link></li>
+                <li><Link to="/verduras" onClick={() => {verProductos();abrirCerrar()}}><GetImage imageName="icono-cebolla.png" altText="icono cebolla"/>Verduras</Link></li>
+                <li><Link to="/encurtidos" onClick={() => {verProductos();abrirCerrar()}}><GetImage imageName="icono-encurtidos.png" altText="icono encurtidos"/>Encurtidos</Link></li>
               </ul>
             </li>
-            <li><Link to="/nosotros">NOSOTROS</Link></li>
-            <li><Link to="/contacto">CONTACTO</Link></li>
-            <li className="cartLi"><Link to="/carro"><GetImage imageName="icono-carrito-verde.png" altText="icono carrito verde"/><span>CARRITO ( <CounterNavBar/> )</span></Link></li>
+            <li><Link to="/nosotros" onClick={() => abrirCerrar()}>NOSOTROS</Link></li>
+            <li><Link to="/contacto" onClick={() => abrirCerrar()}>CONTACTO</Link></li>
+            <li className="cartLi"><Link to="/carro" onClick={() => abrirCerrar()}><GetImage imageName="icono-carrito-verde.png" altText="icono carrito verde"/><span>CARRITO ( <CounterNavBar/> )</span></Link></li>
           </ul>
         </div>
         <div> <Link to="/"><GetImage imageName="horticurita-logo.png" altText="logo horticurita"/></Link></div>

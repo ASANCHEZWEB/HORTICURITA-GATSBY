@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/navBar";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/home.css";
@@ -9,7 +8,7 @@ import gifVerduras from "../../static/categoria-verduras.gif";
 import gifEncurtidos from "../../static/categoria-encurtidos.gif";
 import gifQuesos from "../../static/categoria-quesos.gif";
 import {Helmet} from "react-helmet";
-import Footer from "../components/footer"
+
 let Home = (props) => {
  
   return (
@@ -19,7 +18,7 @@ let Home = (props) => {
                 <title>Horticurita| Comprar fruta , verdura , encurtidos , quesos y mas 24 horas</title>
                 <meta name="description" content="fruta y verdura al mejor precio " />
     </Helmet>
-       <NavBar /> 
+   
       <section id="sectionTitle">
         <div className="containerTitle">
           <div className="containerGreenText ">
@@ -218,7 +217,7 @@ let Home = (props) => {
         </div>
       </section>
 
- <Footer/> 
+      
     </>
   );
 };

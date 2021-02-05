@@ -44,7 +44,7 @@ let GetImage = (props) => {
     return <Img fluid={myImage[0].node.fluid} alt={props.altText} />;
     
   }else{
-    return <p>no encontrado</p>
+    return <p>cargando imagen</p>
   }
 
 

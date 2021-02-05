@@ -1,7 +1,5 @@
 import React from "react";
 import { getCarrito,deleteCartProduct,addToLocalStorage,restProduct } from "../components/localStorageService";
-import NavBar from "../components/navBar";
-import Footer from "../components/footer";
 import "../styles/cart.css";
 import GetImage from "../components/getImage";
 import { Link } from "gatsby";
@@ -94,7 +92,7 @@ if(descuento.length!==0){
     return (
       <>
       
-        <NavBar />
+        
 
         <main className="mainContainerCart">
           <div className="containerTitleCart">
@@ -279,7 +277,7 @@ if(descuento.length!==0){
           </div>}
         </main>
 
-        <Footer />
+        
       </>
     );
   }

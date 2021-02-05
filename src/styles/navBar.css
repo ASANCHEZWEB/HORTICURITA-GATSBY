@@ -1,7 +1,7 @@
 nav {
     width: 100%;
     top: 0px;
-    z-index: 100;
+    z-index: 101;
     position: fixed;
     background-color: #0880009e;
 }
@@ -169,6 +169,7 @@ nav>div:nth-child(2) {
         touch-action: manipulation;
         outline: none;
         display: flex;
+        cursor: pointer;
         justify-content: center;
     }
 
@@ -268,6 +269,7 @@ nav>div:nth-child(2) {
         touch-action: manipulation;
         outline: none;
         display: flex;
+        cursor: pointer;
         justify-content: center;
     }
 
@@ -369,6 +371,7 @@ nav>div:nth-child(2) {
         border: none;
         touch-action: manipulation;
         outline: none;
+        cursor: pointer;
         display: flex;
         justify-content: center;
     }

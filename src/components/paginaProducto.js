@@ -1,7 +1,5 @@
 import { graphql,Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import NavBar from "../components/navBar";
-import Footer from "../components/footer";
 import GetImage from "../components/getImage";
 import "../styles/productPage.css";
 import React, { useEffect, useState,useCallback } from "react";
@@ -110,7 +108,7 @@ useEffect(() => {
         <meta charSet="utf-8" />
         <title> My Title </title>
       </Helmet>
-      <NavBar />
+   
       <div className="productDetailContainer">
         <div className="containerImagesPd">
           <div className="showImage" aria-label = {`Imagen de producto número 1`}>
@@ -156,7 +154,7 @@ useEffect(() => {
 </div>
 
 
-      <Footer />
+    
     </>
   );
 };

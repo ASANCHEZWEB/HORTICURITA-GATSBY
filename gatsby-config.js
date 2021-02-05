@@ -4,6 +4,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static`,

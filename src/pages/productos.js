@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import GetImage from "../components/getImage";
-import NavBar from "../components/navBar";
-import Footer from "../components/footer";
 import { Link } from "gatsby";
 import "../styles/productos.css";
 import { addToLocalStorage,restProduct,filtrarPorDisponibles } from "../components/localStorageService";
@@ -49,7 +47,7 @@ class Productos extends React.Component {
 <title>Horticurita| Productos</title>
 <meta name="description" content="¡Compra desde medio kilo o por unidad!" />
 </Helmet>
-        <NavBar />
+        
         <div className="headerContainerTextProducts">
         <GetImage imageName="frutas-page-background.jpg" altText="frutas y verduras"/>
         <div> 
@@ -259,7 +257,7 @@ class Productos extends React.Component {
             })}
           </div>
         </section>
-        <Footer />
+
       </>
     );
   }
