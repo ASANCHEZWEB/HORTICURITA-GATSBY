@@ -96,36 +96,32 @@ if(descuento.length!==0){
 }
 }
 
- calcTwoDecimals(theNumber) {
-  var num = theNumber;
-  var with2Decimals = num.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
-  return(with2Decimals)
-}
+
 
 
 createTotalCartObj(){
  
-let subtotal=[...this.state.arrayProducts.map(element=>{
+let subtotal=Number([...this.state.arrayProducts.map(element=>{
 if(element.node.frontmatter.formato==="kilogramos"){
 
-  return Number((Number((element.node.frontmatter.price/2).toFixed(2))*element.node.frontmatter.agregado).toFixed(2))
+  return (element.node.frontmatter.price/2)*element.node.frontmatter.agregado
 }else{
-  return Number((element.node.frontmatter.price*element.node.frontmatter.agregado).toFixed(2))
+  return element.node.frontmatter.price*element.node.frontmatter.agregado
 }
 })].reduce((valorAnterior, valorActual)=>{
   return valorAnterior + valorActual;
-}, 0)
+}, 0).toFixed(2))
 
 
-let impuestos=[...this.state.arrayProducts.map(element=>{
+let impuestos=Number([...this.state.arrayProducts.map(element=>{
   if(element.node.frontmatter.formato==="kilogramos"){
-    return Number((Number(((Number((element.node.frontmatter.price/2).toFixed(2))*this.state.ivas[element.node.frontmatter.category])/100).toFixed(2))*element.node.frontmatter.agregado).toFixed(2));
+    return (((element.node.frontmatter.price/2)*this.state.ivas[element.node.frontmatter.category])/100)*element.node.frontmatter.agregado
   }else{
-    return Number((((element.node.frontmatter.price*element.node.frontmatter.agregado)*this.state.ivas[element.node.frontmatter.category])/100).toFixed(2));
+    return (((element.node.frontmatter.price)*this.state.ivas[element.node.frontmatter.category])/100)*element.node.frontmatter.agregado
   }
   })].reduce((valorAnterior, valorActual)=>{
     return valorAnterior + valorActual;
-  }, 0)
+  }, 0).toFixed(2))
 
 
 let descuento=Number((0).toFixed(2))
