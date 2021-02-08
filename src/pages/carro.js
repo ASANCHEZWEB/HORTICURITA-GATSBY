@@ -3,7 +3,7 @@ import { getCarrito,deleteCartProduct,addToLocalStorage,restProduct } from "../c
 import "../styles/cart.css";
 import GetImage from "../components/getImage";
 import { Link } from "gatsby";
-import Product from "../components/paypalButtons"
+import PaypalButtons from "../components/paypalButtons"
 class Carro extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,8 @@ class Carro extends React.Component {
     this.cerrarModal=this.cerrarModal.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.createTotalCartObj=this.createTotalCartObj.bind(this)
+    this.createTotalCartObj=this.createTotalCartObj.bind(this);
+   
   }
 
 
@@ -95,43 +96,46 @@ if(descuento.length!==0){
 }
 }
 
+ calcTwoDecimals(theNumber) {
+  var num = theNumber;
+  var with2Decimals = num.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
+  return(with2Decimals)
+}
+
 
 createTotalCartObj(){
-let subtotal=Number([...this.state.arrayProducts.map(element=>{
+ 
+let subtotal=[...this.state.arrayProducts.map(element=>{
 if(element.node.frontmatter.formato==="kilogramos"){
-  return (element.node.frontmatter.price*element.node.frontmatter.agregado)/2
+
+  return Number((Number((element.node.frontmatter.price/2).toFixed(2))*element.node.frontmatter.agregado).toFixed(2))
 }else{
-  return element.node.frontmatter.price*element.node.frontmatter.agregado
+  return Number((element.node.frontmatter.price*element.node.frontmatter.agregado).toFixed(2))
 }
 })].reduce((valorAnterior, valorActual)=>{
   return valorAnterior + valorActual;
-}, 0).toFixed(2))
+}, 0)
 
 
-let impuestos=Number([...this.state.arrayProducts.map(element=>{
+let impuestos=[...this.state.arrayProducts.map(element=>{
   if(element.node.frontmatter.formato==="kilogramos"){
-    return (((element.node.frontmatter.price*element.node.frontmatter.agregado)/2)*this.state.ivas[element.node.frontmatter.category])/100;
+    return Number((Number(((Number((element.node.frontmatter.price/2).toFixed(2))*this.state.ivas[element.node.frontmatter.category])/100).toFixed(2))*element.node.frontmatter.agregado).toFixed(2));
   }else{
-    return ((element.node.frontmatter.price*element.node.frontmatter.agregado)*this.state.ivas[element.node.frontmatter.category])/100;
+    return Number((((element.node.frontmatter.price*element.node.frontmatter.agregado)*this.state.ivas[element.node.frontmatter.category])/100).toFixed(2));
   }
   })].reduce((valorAnterior, valorActual)=>{
     return valorAnterior + valorActual;
-  }, 0).toFixed(2))
+  }, 0)
 
 
-  let descuento=0;
-
-let gastosEnvio=JSON.parse(process.env.GASTOSENVIO);
-
-
-
-let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2));
+let descuento=Number((0).toFixed(2))
+let gastosEnvio=Number(JSON.parse(process.env.GASTOSENVIO).toFixed(2));
+let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2))
 
 
-
-
-  this.setState({totalCarrito:{subTotal:subtotal,impuestos:impuestos,descuento:descuento,gastosEnvio:gastosEnvio,total:total}});
+  this.setState({totalCarrito:{"subTotal":subtotal,"impuestos":impuestos,"descuento":descuento,"gastosEnvio":gastosEnvio,"total":total}});
   
+
   
 }
 
@@ -241,7 +245,7 @@ let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2));
                         <div className="displayItemData">
                           <strong>SUBTOTAL: </strong>
                           <span>
-                            {((element.node.frontmatter.price *element.node.frontmatter.agregado) /2).toFixed(2)}
+                            {((element.node.frontmatter.price *element.node.frontmatter.agregado)/2).toFixed(2)}
                             €
                           </span>
                         </div>
@@ -311,7 +315,7 @@ let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2));
               {/* <button className="finalizarCompraButton animate__animated animate__pulse animate__infinite" id="paypal-button-container">FINALIZAR COMPRA</button> */}
              
               
-              <Product/>
+              <PaypalButtons stateCart={this.state}/>
               
               
 
