@@ -122,7 +122,7 @@ useEffect(() => {
         </div>
         <div className="prodDetTitle">
           <h1>{props.data.markdownRemark.frontmatter.name}</h1>
-          <span>{props.data.markdownRemark.frontmatter.price}{props.data.markdownRemark.frontmatter.formato==="kilogramos"? "€/Kg":"€/Ud"}</span>
+          <span>{props.data.markdownRemark.frontmatter.formato==="kilogramos"? `${props.data.markdownRemark.frontmatter.price*2}€/Kg`:`${props.data.markdownRemark.frontmatter.price}€/Ud`}</span>
           {props.data.markdownRemark.frontmatter.disponible==="si"? <span><GetImage imageName="icono-stock-disponible.png" altText="icono stock disponible"/>Disponible</span>:<span><GetImage imageName="icono-sin-stock.png" altText="icono stock no disponible" />No disponible</span>}
             
             <div className="buttonsProdDet">

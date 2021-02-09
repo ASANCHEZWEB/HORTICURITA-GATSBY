@@ -2,7 +2,7 @@
 slug: "/comprar/cerezas"
 category: "frutas"
 name: "platano"
-price: 3.6
+price: 1.80
 altText: "platano"
 disponible: "si"
 imageName: ["cerezas.jpg"]

@@ -79,7 +79,7 @@ class Productos extends React.Component {
                         <span>{element.node.frontmatter.name}</span>
                       </Link>
                       {element.node.frontmatter.formato === "kilogramos" ? (
-                        <span>{element.node.frontmatter.price}€/Kg</span>
+                        <span>{element.node.frontmatter.price*2}€/Kg</span>
                       ) : (
                         <span>{element.node.frontmatter.price}€/Ud</span>
                       )}

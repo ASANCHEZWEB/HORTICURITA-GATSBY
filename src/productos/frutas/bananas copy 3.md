@@ -2,7 +2,7 @@
 slug: "/comprar/manzana"
 category: "frutas"
 name: "platano"
-price: 1.3
+price: 0.65
 altText: "platano"
 disponible: "si"
 imageName: ["cerezas.jpg"]

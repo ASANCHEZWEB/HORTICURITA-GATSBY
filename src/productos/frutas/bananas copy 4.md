@@ -2,7 +2,7 @@
 slug: "/comprar/pera-roja"
 category: "frutas"
 name: "platano"
-price: 5.6
+price: 2.80
 altText: "platano"
 disponible: "si"
 imageName: ["cerezas.jpg"]

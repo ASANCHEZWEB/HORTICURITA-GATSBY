@@ -2,7 +2,7 @@
 slug: "/comprar/platano-rosa"
 category: "frutas"
 name: "platano"
-price: 6.75
+price: 3.37
 altText: "platano"
 disponible: "si"
 imageName: ["cerezas.jpg"]

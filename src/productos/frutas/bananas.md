@@ -2,7 +2,7 @@
 slug: "/comprar/bananas"
 category: "frutas"
 name: "banana"
-price: 1
+price: 0.50
 altText: "platano"
 disponible: "si"
 imageName: ["bananas.jpg"]

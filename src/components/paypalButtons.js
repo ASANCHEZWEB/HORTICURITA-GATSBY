@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom"
 
-const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+
 
 
 
@@ -10,39 +10,45 @@ const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 
 function PaypalButtons(props) {
+  const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+
+  
+  let subTotal=0;
+  let totalTax=0;
+  
+
 
   let arrayItems=props.stateCart.arrayProducts.map((element,index)=>{
 
-    let unitPrice=0;
-    let impuestoCalc=0;
-    if(element.node.frontmatter.formato==="kilogramos"){
-      impuestoCalc=Number(((Number((element.node.frontmatter.price/2).toFixed(2))*props.stateCart.ivas[element.node.frontmatter.category])/100).toFixed(2))
-      unitPrice= (element.node.frontmatter.price/2).toFixed(2)
-    }else{
-      unitPrice=(element.node.frontmatter.price).toFixed(2)
-      impuestoCalc=Number(((element.node.frontmatter.price*props.stateCart.ivas[element.node.frontmatter.category])/100).toFixed(2))
+subTotal+=element.node.frontmatter.price*element.node.frontmatter.agregado;
+totalTax+=Number(((element.node.frontmatter.price*props.stateCart.ivas[element.node.frontmatter.category])/100).toFixed(2))*element.node.frontmatter.agregado;
+
+
+    return {
+      name: `${element.node.frontmatter.name}`,
+      description: `IVA (${props.stateCart.ivas[element.node.frontmatter.category]}%)`,
+      sku: `${index+=1}`,
+      unit_amount: {
+        currency_code: "EUR",
+        value: element.node.frontmatter.price
+      },
+      tax: {
+        currency_code: "EUR",
+        value: ((element.node.frontmatter.price*props.stateCart.ivas[element.node.frontmatter.category])/100).toFixed(2)
+      },
+      quantity: element.node.frontmatter.agregado,
+      category: "PHYSICAL_GOODS"
     }
+  })
+
+  let total=(subTotal+totalTax+props.stateCart.totalCarrito.gastosEnvio)-props.stateCart.totalCarrito.descuento;
 
 
 
 
-      return {
-        name: element.node.frontmatter.name,
-        description: `IVA (${props.stateCart.ivas[element.node.frontmatter.category]}%)`,
-        sku: `${index+=1}`,
-        unit_amount: {
-          currency_code: "EUR",
-          value: unitPrice
-        },
-        tax: {
-          currency_code: "EUR",
-          value: `${impuestoCalc}`
-        },
-        quantity: `${element.node.frontmatter.agregado}`,
-        category: "PHYSICAL_GOODS"
-      }
 
-    })
+
+
 
 
 let objectTwo={
@@ -54,15 +60,15 @@ purchase_units: [{
   soft_descriptor: "Sin descripción",
   amount: {
     currency_code: "EUR",
-    value: `${props.stateCart.totalCarrito.total}`,
+    value: total.toFixed(2),
     breakdown: {
       item_total: {
         currency_code: "EUR",
-        value: `${props.stateCart.totalCarrito.subTotal}`
+        value: subTotal.toFixed(2)
       },
       shipping: {
         currency_code: "EUR",
-        value: `${props.stateCart.totalCarrito.gastosEnvio}`
+        value: props.stateCart.totalCarrito.gastosEnvio
       },
       handling: {
         currency_code: "EUR",
@@ -70,20 +76,21 @@ purchase_units: [{
       },
       tax_total: {
         currency_code: "EUR",
-        value: `${props.stateCart.totalCarrito.impuestos}`
+        value: totalTax.toFixed(2)
       },
       shipping_discount: {
         currency_code: "EUR",
-        value: `${props.stateCart.totalCarrito.descuento}`
+        value: props.stateCart.totalCarrito.descuento
       }
     }
   },
+  //primero calcular el impuesto por cada articulo del array haciendo tax.value * quantity
   items: arrayItems
 }]
 }
 
-
 console.log(objectTwo)
+
   const createOrder = (data, actions) =>{
     return actions.order.create(objectTwo);
   };
@@ -93,10 +100,14 @@ console.log(objectTwo)
   };
 
   return (
-    <PayPalButton
+<>
+<PayPalButton
       createOrder={(data, actions) => createOrder(data, actions)}
       onApprove={(data, actions) => onApprove(data, actions)}
     />
+
+    
+    </>
   );
 }
 

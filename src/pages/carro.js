@@ -102,26 +102,13 @@ if(descuento.length!==0){
 createTotalCartObj(){
  
 let subtotal=Number([...this.state.arrayProducts.map(element=>{
-if(element.node.frontmatter.formato==="kilogramos"){
-
-  return (element.node.frontmatter.price/2)*element.node.frontmatter.agregado
-}else{
   return element.node.frontmatter.price*element.node.frontmatter.agregado
-}
-})].reduce((valorAnterior, valorActual)=>{
-  return valorAnterior + valorActual;
-}, 0).toFixed(2))
+})].reduce((a,b)=>{return a+b},0).toFixed(2))
 
 
 let impuestos=Number([...this.state.arrayProducts.map(element=>{
-  if(element.node.frontmatter.formato==="kilogramos"){
-    return (((element.node.frontmatter.price/2)*this.state.ivas[element.node.frontmatter.category])/100)*element.node.frontmatter.agregado
-  }else{
     return (((element.node.frontmatter.price)*this.state.ivas[element.node.frontmatter.category])/100)*element.node.frontmatter.agregado
-  }
-  })].reduce((valorAnterior, valorActual)=>{
-    return valorAnterior + valorActual;
-  }, 0).toFixed(2))
+  })].reduce((a,b)=>{return a+b},0).toFixed(2))
 
 
 let descuento=Number((0).toFixed(2))
@@ -206,7 +193,7 @@ let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2))
                       ) : (
                         <div className="displayItemData">
                           <span>PRECIO/Kg: </span>
-                          <span>{element.node.frontmatter.price}€/Kg</span>
+                          <span>{element.node.frontmatter.price*2}€/Kg</span>
                         </div>
                       )}
                       <div className="displayItemData">
@@ -241,7 +228,7 @@ let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2))
                         <div className="displayItemData">
                           <strong>SUBTOTAL: </strong>
                           <span>
-                            {((element.node.frontmatter.price *element.node.frontmatter.agregado)/2).toFixed(2)}
+                            {(element.node.frontmatter.price *element.node.frontmatter.agregado).toFixed(2)}
                             €
                           </span>
                         </div>
