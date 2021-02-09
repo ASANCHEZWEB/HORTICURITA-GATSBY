@@ -7,7 +7,7 @@ import PaypalButtons from "../components/paypalButtons"
 class Carro extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { arrayProducts: [] ,modalInfo:"",ivas:{},codigoCupon:"",discountCodes:[],discountApply:"",totalCarrito:{}};
+    this.state = { arrayProducts: [] ,modalInfo:"",ivas:{},codigoCupon:"",discountCodes:[],discountApply:"",totalCarrito:{impuestos:0}};
 
     this.getCarritoData = this.getCarritoData.bind(this);
     this.deleteProduct=this.deleteProduct.bind(this);
@@ -106,9 +106,13 @@ let subtotal=Number([...this.state.arrayProducts.map(element=>{
 })].reduce((a,b)=>{return a+b},0).toFixed(2))
 
 
-let impuestos=Number([...this.state.arrayProducts.map(element=>{
-    return (((element.node.frontmatter.price)*this.state.ivas[element.node.frontmatter.category])/100)*element.node.frontmatter.agregado
-  })].reduce((a,b)=>{return a+b},0).toFixed(2))
+let impuestos=0;
+
+this.state.arrayProducts.forEach(element=>{
+
+  impuestos+=Number(((element.node.frontmatter.price*this.state.ivas[element.node.frontmatter.category])/100).toFixed(2))*element.node.frontmatter.agregado;
+   
+  })
 
 
 let descuento=Number((0).toFixed(2))
@@ -289,7 +293,7 @@ let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2))
                 <h3>TOTAL CARRITO</h3>
                 <hr></hr>
                 <div><span>Subtotal:</span><span>{this.state.totalCarrito.subTotal}€</span></div>
-                <div><span>Impuestos(IVA):</span><span>{this.state.totalCarrito.impuestos}€</span></div>
+                <div><span>Impuestos(IVA):</span><span>{this.state.totalCarrito.impuestos.toFixed(2)}€</span></div>
                 <div><span>Descuento:</span><span>-{this.state.totalCarrito.descuento}€</span></div>
                 <div><span>Gastos de envío:</span><span>{this.state.totalCarrito.gastosEnvio}€</span></div>
                 <hr></hr>

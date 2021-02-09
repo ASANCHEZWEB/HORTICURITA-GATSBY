@@ -16,16 +16,21 @@ function PaypalButtons(props) {
   let subTotal=0;
   let totalTax=0;
   
-
+  let nombre="";
 
   let arrayItems=props.stateCart.arrayProducts.map((element,index)=>{
 
 subTotal+=element.node.frontmatter.price*element.node.frontmatter.agregado;
 totalTax+=Number(((element.node.frontmatter.price*props.stateCart.ivas[element.node.frontmatter.category])/100).toFixed(2))*element.node.frontmatter.agregado;
 
+if(element.node.frontmatter.formato==="kilogramos"){
+  nombre=`${element.node.frontmatter.name} (0.5 Kgs)`
+}else{
+  nombre=`${element.node.frontmatter.name} (1 Ud)`
+}
 
     return {
-      name: `${element.node.frontmatter.name}`,
+      name: nombre,
       description: `IVA (${props.stateCart.ivas[element.node.frontmatter.category]}%)`,
       sku: `${index+=1}`,
       unit_amount: {
