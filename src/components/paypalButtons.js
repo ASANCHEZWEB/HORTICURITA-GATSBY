@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom"
 
-
+import axios from "axios"
 
 
 
@@ -94,14 +94,31 @@ purchase_units: [{
 }]
 }
 
-console.log(objectTwo)
+
 
   const createOrder = (data, actions) =>{
+
     return actions.order.create(objectTwo);
   };
 
   const onApprove = (data, actions) => {
-    return actions.order.capture();
+
+    actions.order.capture().then((response)=>{
+
+      axios.post('http://localhost:3000/sendInvoice', {id:response.id})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+      
+    })
+
+
+    return;
   };
 
   return (

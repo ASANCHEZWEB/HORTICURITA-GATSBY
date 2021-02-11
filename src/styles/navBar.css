@@ -38,6 +38,10 @@ nav>div:nth-child(2) {
     width: 40px;
 }
 
+.buttonProducts{
+    font-size: 14px;
+font-weight: bold;
+}
 .buttonProducts>div {
     width: 15px;
 }
