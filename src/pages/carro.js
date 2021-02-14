@@ -115,7 +115,7 @@ this.state.arrayProducts.forEach(element=>{
   })
 
 
-let descuento=Number((0).toFixed(2))
+let descuento=Number((1).toFixed(2))
 let gastosEnvio=Number(JSON.parse(process.env.GASTOSENVIO).toFixed(2));
 let total=Number(((subtotal+impuestos+gastosEnvio)-descuento).toFixed(2))
 

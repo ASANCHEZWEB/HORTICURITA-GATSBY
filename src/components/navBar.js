@@ -68,7 +68,7 @@ if(claseProducts==="ulProductos"){
                 <li><Link to="/encurtidos" onClick={() => {verProductos();abrirCerrar()}}><GetImage imageName="icono-encurtidos.png" altText="icono encurtidos"/>Encurtidos</Link></li>
               </ul>
             </li>
-            <li><Link to="/nosotros" onClick={() => abrirCerrar()}>NOSOTROS</Link></li>
+            <li><Link to="/sobre-nosotros" onClick={() => abrirCerrar()}>NOSOTROS</Link></li>
             <li><Link to="/contacto" onClick={() => abrirCerrar()}>CONTACTO</Link></li>
             <li className="cartLi"><Link to="/carro" onClick={() => abrirCerrar()}><GetImage imageName="icono-carrito-verde.png" altText="icono carrito verde"/><span>CARRITO ( <CounterNavBar/> )</span></Link></li>
           </ul>

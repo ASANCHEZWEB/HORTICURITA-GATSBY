@@ -102,9 +102,8 @@ purchase_units: [{
   };
 
   const onApprove = (data, actions) => {
-
     actions.order.capture().then((response)=>{
-
+      console.log(response)
       axios.post('http://localhost:3000/sendInvoice', {id:response.id})
       .then(function (response) {
         console.log(response);
