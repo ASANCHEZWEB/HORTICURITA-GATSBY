@@ -1,0 +1,54 @@
+.contactContainer {
+    padding: 59px 12px;
+    font-family: 'Montserrat';
+}
+
+
+.mapAndContact{
+    max-width: 947px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+.mapAndContact>div:nth-child(1){
+    width: 320px;
+}
+.mapAndContact>div:nth-child(1)>span{
+    color: rgba(91, 58, 26, 0.95);
+    font-size: 23px;
+    margin: 13px 0px;
+}
+.mapAndContact>div:nth-child(1)>h1{
+    color: green;
+}
+.mapAndContact>div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+.mapAndContact>div:nth-child(2)>span{
+    color: rgba(91, 58, 26, 0.95);
+    font-size: 23px;
+    margin: 13px 0px;
+}
+
+.contactIcons{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin: 15px 0px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    padding: 0px;
+    outline: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.contactIcons>div{
+    width: 33px;
+    margin-right: 8px;
+}
